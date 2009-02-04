@@ -1,0 +1,214 @@
+# sfAdminDashPlugin
+
+##Overview
+
+I found for all my symfony projects which had backends I had to create a 
+menu to access all the various modules.  This plugin automates the 
+process by using a configuration file.
+
+##How to use
+
+###Step 1 - install plugin
+
+Install the plugin, clear the cache and activate the sfAdminDash module 
+in the application's *settings.yml*.
+
+    enabled_modules:        [default, sfAdminDash]
+
+###Step 2 - setup theme
+
+Publish the plugin's assets:
+
+    plugin:publish-assets
+
+If the modules are admin generator modules, deactivate the default admin 
+generators theme in each module's *generator.yml* by creating a css 
+property.  You can either point the css property to a real stylesheet or 
+just use a placeholder.
+
+    generator:
+      class: sfPropelGenerator
+      param:
+        model_class:           Article
+        theme:                 admin
+        non_verbose_templates: true
+        with_show:             false
+        singular:              ~
+        plural:                ~
+        route_prefix:          article
+        with_propel_route:     1
+        css:                   nothing
+
+        config:
+          actions: ~
+          fields:  ~
+          list:    ~
+          filter:  ~
+          form:    ~
+          edit:    ~
+          new:     ~
+
+In the future I would like to create an actual theme by overriding the 
+default files but I found an issue when trying to do this (see [my 
+ticket](http://trac.symfony-project.org/ticket/5697))
+
+Add the plugin's header and footer partials to your applications global 
+layout:
+
+    <body>
+      <?php include_partial('sfAdminDash/header') ?>
+      <?php echo $sf_content ?>
+      <?php include_partial('sfAdminDash/footer') ?>
+    </body>
+
+  At this point your modules should be styled with the joomla-like 
+theme.  There should be a warning saying *Plugin not configured. Please 
+see documentation.*  We will fix that soon.
+
+###Step 3 (optional) - setup the dashboard
+
+Set your applications *homepage* in your applications *routing.yml* to 
+look like:
+
+    homepage:
+      url:   /
+      param: { module: sfAdminDash, action: dashboard }
+
+Again you see that warning, we will address that next.
+
+###Step 4 - configure global plugin configuration
+
+The plugin's *app.yml* file looks like the following:
+
+    all:
+      sf_admin_dash:
+        web_dir:              /sfAdminDashPlugin
+        image_dir:            /sfAdminDashPlugin/images/icons/
+        default_image:        config.png
+        resize_mode:          thumbnail
+        logout:               yes
+        site:                 My Site
+        include_jquery:       yes
+
+* web_dir - where the plugin's default css/javascript/images are kept
+* image_dir - where your images for the dash/menu items are kept - 
+images should be 48x48
+* default_image - the default item image if none is specified - this 
+must be in the *image_dir* folder
+* resize_mode - how the image will be resized for the menu items
+    * thumbnail - looks in a directory inside *image_dir* called small 
+for the same image name - these should be 16x16
+    * html - resizes the image within the html *img* tag
+* logout is whether the logout link should be shown
+* site - what you would like the site name to be (shows up in the *path 
+bar* as a link)
+* include_jquery - the plugin's javascript needs jquery - choose no if 
+your application already includes it
+
+Override these settings as you see fit.
+
+###Step 5 - configure the dashboard/menu items
+
+Items are controlled by your application's *app.yml* file.  The best way 
+to show how to use this is with an example:
+
+  I have created backend application and 2 admin modules: Comment and 
+Article.
+
+  To create dash/menu items for these modules I use this format:
+
+    all:
+      sf_admin_dash:
+        items:
+          Articles:
+            url:    article
+          Comments:
+            url:    comment
+
+This creates 2 items on the dashboard and a *Menu* dropdown.  The url 
+property should be an internal URI.  You can also set credentials and an 
+image.  The *image* property is just the image name - its location is 
+specified in the global settings.
+
+  The credential property can be used to hide options from users who do 
+not have specific credentials.  This gives the ability for different 
+users to see different options.  The format for this is the same as when 
+setting credentials in *security.yml*.
+  
+  **NOTE:  This just prevents the user from seeing the item.  You still 
+need to setup the same credentials in *security.yml* to prevent the user 
+from accessing the module.**
+
+Here is an sample configuration:
+
+    all:
+      sf_admin_dash:
+        items:
+          Articles:
+            url:          article
+            image:        book.png
+            credentials:  [[admin, publisher]]
+          Comments:
+            url:          comment
+            image:        textcloud.png
+            credentials:  [admin]
+
+The above example shows the *Articles* item only to users with the 
+**admin** or **publisher** credential and the *Comments* item only to 
+users with the **admin** credential.  The images are self explanatory.  
+Packaged with this plugin is a small library of images that can be used.
+
+You can group items into categories as well by embedding the items into 
+a *category name* property under *categories* property:
+
+    all:
+      sf_admin_dash:
+        categories:
+          Blog:
+            items:
+              Articles:
+                url:          article
+                image:        book.png
+                credentials:  [[admin, publisher]]
+              Comments:
+                url:          comment
+                image:        textcloud.png
+                credentials:  [admin]
+          Category2:
+            items:
+              ...
+
+Category names are not only seperated on the dashboard but they have 
+their own dropdown menu.
+
+  You can set credentials to entire categories like so:
+
+    all:
+      sf_admin_dash:
+        categories:
+          Blog:
+            credentials:      [admin]
+            items:
+              Articles:
+                url:          article
+                image:        book.png
+              Comments:
+                url:          comment
+                image:        textcloud.png
+
+This hides the entire category from the user if they don't have the 
+**admin** credential.
+
+###Step 6 (optional) - setting up login screen
+
+Packaged with this plugin is a partial called *login*.  Currently, it 
+works with sfGuardPlugin.  To prevent the path and menu bar from showing 
+decorate the login with another layout that calls the *header_top* 
+partial rather than *header*.
+
+###todo
+* use an actual admin generator theme
+* make a more dynamic login screen (configurable in the global config)
+* clean up css
+
+Feel free to email me with suggestions/bugs.

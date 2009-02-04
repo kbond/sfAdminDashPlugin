@@ -1,0 +1,10 @@
+all:
+  sf_admin_dash:
+    web_dir:              /sfAdminDashPlugin
+    image_dir:            /sfAdminDashPlugin/images/icons/
+    default_image:        config.png
+    resize_mode:          thumbnail
+    logout:               yes
+    site:                 My Site
+    include_jquery:       yes
+

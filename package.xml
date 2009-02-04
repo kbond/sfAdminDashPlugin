@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.6.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>sfAdminDashPlugin</name>
+ <channel>pear.symfony-project.com</channel>
+ <summary>Dashboard interface for application backend</summary>
+ <description>Dashboard interface for application backend</description>
+ <lead>
+  <name>Kevin Bond</name>
+  <user>kingpin393</user>
+  <email>kevin@zenstruck.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-02-04</date>
+ <time>20:30:56</time>
+ <version>
+  <release>0.8.0</release>
+  <api>0.8.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license uri="http://www.symfony-project.org/license">MIT license</license>
+ <notes>-</notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="c0e6a33d54cbf680e1773c81f83eaf86" name="config/app.yml" role="data" />
+   <file md5sum="964e0bf56e9107c9944b8341f12b65c9" name="modules/sfAdminDash/actions/components.class.php" role="data" />
+   <file md5sum="889b40db03d4eee3859334cb37d8e637" name="modules/sfAdminDash/actions/actions.class.php" role="data" />
+   <file md5sum="e2cc78bd8cf54b90b301a5f4f74931ce" name="modules/sfAdminDash/templates/_menu.php" role="data" />
+   <file md5sum="e194cfd2e969fc809bfaba83db768134" name="modules/sfAdminDash/templates/_header.php" role="data" />
+   <file md5sum="7cba4e29ada915987408b4cfffa6c1a8" name="modules/sfAdminDash/templates/_listing.php" role="data" />
+   <file md5sum="fbb2a444d8e8ff13a00eeb32b7169902" name="modules/sfAdminDash/templates/_dash_item.php" role="data" />
+   <file md5sum="1c2643da4508428a8e793d97c97d5b75" name="modules/sfAdminDash/templates/dashboardSuccess.php" role="data" />
+   <file md5sum="3bbf0c270be4f83dfff139e98ffee0f4" name="modules/sfAdminDash/templates/_login.php" role="data" />
+   <file md5sum="d32956825a1cad0c5ba4bb4bfa8aacef" name="modules/sfAdminDash/templates/_header_top.php" role="data" />
+   <file md5sum="1042f4358ddaf6d2dde5b26cd97d0bca" name="modules/sfAdminDash/templates/_menu_list.php" role="data" />
+   <file md5sum="b5d79dfbbdd898c3423f96b54733852e" name="modules/sfAdminDash/templates/_footer.php" role="data" />
+   <file md5sum="4b39140cf5377f17d7705898845ad292" name="modules/sfAdminDash/templates/_menu_item.php" role="data" />
+   <file md5sum="c49c5a0b01e4481e9311ae1020ab62e4" name="modules/sfAdminDash/templates/_item.php" role="data" />
+   <file md5sum="604eade804c964db88ac2514478bead1" name="modules/sfAdminDash/templates/_dash_list.php" role="data" />
+   <file md5sum="a238efc9204c40747dc0fcd0417c2104" name="modules/sfAdminDash/templates/_dash.php" role="data" />
+   <file md5sum="5d4c7816890f3308da6126f5fa65c979" name="web/js/jquery-1.3.1.min.js" role="data" />
+   <file md5sum="17fbcac016af28d18e022afc9d94ff9b" name="web/js/sf_admin_dash.js" role="data" />
+   <file md5sum="95b7903f1a0f8c0b15af1ab1a00d5c46" name="web/css/global.css" role="data" />
+   <file md5sum="b46e3820c7240f5764b9b5b5b59dfee3" name="web/css/default.css" role="data" />
+   <file md5sum="2f2cc7ec9f827fa7a07d9a01cef2879a" name="web/images/icons/small/browser.png" role="data" />
+   <file md5sum="347093a9bac60e6c79cfaea4b131f1e0" name="web/images/icons/small/inbox.png" role="data" />
+   <file md5sum="6307aa7a16cb549e7a9d7295f9da25bd" name="web/images/icons/small/checkin.png" role="data" />
+   <file md5sum="93559b8b1933470b3768a65baed8f9cf" name="web/images/icons/small/systeminfo.png" role="data" />
+   <file md5sum="29f0d8d4abd4ec7caf0e5aebb2ea7a49" name="web/images/icons/small/templatemanager.png" role="data" />
+   <file md5sum="87843817e74dd53c92fde840c7288e02" name="web/images/icons/small/message_config.png" role="data" />
+   <file md5sum="d3b4ecc1b0a3380f1b279ea7e87c35fa" name="web/images/icons/small/module.png" role="data" />
+   <file md5sum="ad9f4ce84090d5f8126dc124ae6eb8dc" name="web/images/icons/small/addedit.png" role="data" />
+   <file md5sum="b50f99cca22f91d5813f2bfc23f9aa80" name="web/images/icons/small/impressions.png" role="data" />
+   <file md5sum="2435d9f0e1b6f7be8531b8fe5f4b2cda" name="web/images/icons/small/install.png" role="data" />
+   <file md5sum="258c0fb7dbf317ccab6ad72675d4ea57" name="web/images/icons/small/sections.png" role="data" />
+   <file md5sum="1c064c806f176a9d0ec513064db1a447" name="web/images/icons/small/config.png" role="data" />
+   <file md5sum="ca76ab5e944337b67afb4075b536ade0" name="web/images/icons/small/users.png" role="data" />
+   <file md5sum="17366d9836e79f1fde506b7e80b5c005" name="web/images/icons/small/language.png" role="data" />
+   <file md5sum="32f09eecff4093bc9c87ad44307215b6" name="web/images/icons/small/messaging.png" role="data" />
+   <file md5sum="a43cc7b920023ee08b2d2f176483d4cf" name="web/images/icons/small/categories.png" role="data" />
+   <file md5sum="1be59a037c3b4c2e28f36828ca2a541d" name="web/images/icons/small/dbrestore.png" role="data" />
+   <file md5sum="b30b755cfa9d4618ccd170340f9996d8" name="web/images/icons/small/trash.png" role="data" />
+   <file md5sum="e1ac4f6ce5a454e27b900321de17fa3a" name="web/images/icons/small/generic.png" role="data" />
+   <file md5sum="c80ca8cb934422b6426da0577a208f74" name="web/images/icons/small/backup.png" role="data" />
+   <file md5sum="cd7cce05b83ede59b050bbf027aacf2c" name="web/images/icons/small/searchtext.png" role="data" />
+   <file md5sum="0616f240c4c9d0dfb8daabeda9bfbeee" name="web/images/icons/small/query.png" role="data" />
+   <file md5sum="d60d07edb63571df88ddd73b12571f82" name="web/images/icons/small/frontpage.png" role="data" />
+   <file md5sum="4a6f430e403bd4fff6b10e8369a50ec3" name="web/images/icons/small/support.png" role="data" />
+   <file md5sum="36032d1f9dc5946ef2fdb78ba60442c8" name="web/images/icons/small/cpanel.png" role="data" />
+   <file md5sum="f3e46b2cdd66b1de607ebaf64d3afe83" name="web/images/icons/small/massemail.png" role="data" />
+   <file md5sum="958ebf5d238e2f7a426f8823880ac1c5" name="web/images/icons/small/mediamanager.png" role="data" />
+   <file md5sum="33db99ed8757a57ea1a0c5aac01612fe" name="web/images/icons/small/menu.png" role="data" />
+   <file md5sum="d8a3e3a3b31f88233a1b9f80ec6d849b" name="web/images/icons/small/addusers.png" role="data" />
+   <file md5sum="8f167b3fe8f47091b7ccbbfc05bd4cb4" name="web/images/icons/small/credits.png" role="data" />
+   <file md5sum="40ac0d9cdea6553eb0ab1b3b2d2c693b" name="web/images/icons/browser.png" role="data" />
+   <file md5sum="14683200f579006aed935328803f25dc" name="web/images/icons/inbox.png" role="data" />
+   <file md5sum="15bb1c04c899a67e62a46f6955cd0085" name="web/images/icons/checkin.png" role="data" />
+   <file md5sum="07553847c2da0a35d66627d5ce8e1d14" name="web/images/icons/systeminfo.png" role="data" />
+   <file md5sum="cdd83710951bc0f73fdd02f4d016ec5e" name="web/images/icons/templatemanager.png" role="data" />
+   <file md5sum="e59a93ae859ee035789b0b45eaac958d" name="web/images/icons/message_config.png" role="data" />
+   <file md5sum="1c83151689b0788e5f26f9e3fddb5432" name="web/images/icons/module.png" role="data" />
+   <file md5sum="882ecb831e09e98bb014f990390ee1d2" name="web/images/icons/addedit.png" role="data" />
+   <file md5sum="e03d5bf30f26b48ef67d982ba93eabd9" name="web/images/icons/impressions.png" role="data" />
+   <file md5sum="49fad9c07d820e7a4c9a1ce181a1facd" name="web/images/icons/install.png" role="data" />
+   <file md5sum="48a75596aeb823b1ffa2d1fc91734540" name="web/images/icons/sections.png" role="data" />
+   <file md5sum="618cd8fb602e660aee8a86936eb623cc" name="web/images/icons/config.png" role="data" />
+   <file md5sum="f0e1a88f755a408afb011e981c310f2b" name="web/images/icons/users.png" role="data" />
+   <file md5sum="f1174bc1734599108484425cdd3e0936" name="web/images/icons/language.png" role="data" />
+   <file md5sum="52215458026544d3aee5920ca25d11ad" name="web/images/icons/messaging.png" role="data" />
+   <file md5sum="bb1182f22b0570e739e19afe41f0643d" name="web/images/icons/categories.png" role="data" />
+   <file md5sum="b9d818673525c7706a9194a10a42d32c" name="web/images/icons/dbrestore.png" role="data" />
+   <file md5sum="ce435fc9d232771758e4d3172d3903a4" name="web/images/icons/trash.png" role="data" />
+   <file md5sum="73b651a57ca91be66c1c421f9199b519" name="web/images/icons/generic.png" role="data" />
+   <file md5sum="6fdc6a22055277def16ed69bf6045814" name="web/images/icons/backup.png" role="data" />
+   <file md5sum="e47163b57a683ad24b52f2cdb3c6a87a" name="web/images/icons/searchtext.png" role="data" />
+   <file md5sum="ae51289412772184d95337c7260c8398" name="web/images/icons/query.png" role="data" />
+   <file md5sum="091c9dc068dcaafa4ff87fca63e799a5" name="web/images/icons/frontpage.png" role="data" />
+   <file md5sum="14196a80962b150437bde75b8b13edc3" name="web/images/icons/support.png" role="data" />
+   <file md5sum="09f54f7297392f901cedc58e60345d32" name="web/images/icons/cpanel.png" role="data" />
+   <file md5sum="8da0ac3f9576d3d55c03c17a00449084" name="web/images/icons/massemail.png" role="data" />
+   <file md5sum="ec8ed8b946f68348daf564e8aff6894e" name="web/images/icons/mediamanager.png" role="data" />
+   <file md5sum="ea9e9f1a99bbc190c36d3a92458b0aa4" name="web/images/icons/menu.png" role="data" />
+   <file md5sum="71d55167e22d20134fb8ec4d4bdc5863" name="web/images/icons/addusers.png" role="data" />
+   <file md5sum="166c7539c119e7c06ec6b3f7fc79cdbb" name="web/images/icons/credits.png" role="data" />
+   <file md5sum="7a431746a09eb1eb8a12edbac721bce0" name="web/images/medium/unpublish_f2.png" role="data" />
+   <file md5sum="5eb0dcef912d60b284734155bc7b503e" name="web/images/medium/task.png" role="data" />
+   <file md5sum="c131bab7b71ca621d588206c66ee5d7c" name="web/images/medium/switch_f2.png" role="data" />
+   <file md5sum="9be87f2bc6ff867ffa1698e7c419ee52" name="web/images/medium/cancel.png" role="data" />
+   <file md5sum="ae84ffed50a34e20349519d03774d713" name="web/images/medium/help_f2.png" role="data" />
+   <file md5sum="a22e5edb82334160710ba311ebf35c9c" name="web/images/medium/forward.png" role="data" />
+   <file md5sum="cd35e85640595800e990d7a3a3111321" name="web/images/medium/preview_f2.png" role="data" />
+   <file md5sum="5cc8a21ec6be7a8a0227d56a7835c60f" name="web/images/medium/help.png" role="data" />
+   <file md5sum="3b4edf5810e5d068c27132df5d1e8918" name="web/images/medium/extensions.png" role="data" />
+   <file md5sum="307fd7babd321b3b61d0502c03027ec7" name="web/images/medium/apply.png" role="data" />
+   <file md5sum="05ca7dee9c3ff75de8afdd61d9731787" name="web/images/medium/next.png" role="data" />
+   <file md5sum="e4f8bf40219f1bfc987b35368d47327e" name="web/images/medium/publish_f2.png" role="data" />
+   <file md5sum="32ef99eca27d0d71b379183006aef61f" name="web/images/medium/cancel_f2.png" role="data" />
+   <file md5sum="4c60b5fa841b1310e9b9e35bcd397800" name="web/images/medium/ok.png" role="data" />
+   <file md5sum="62bb0107b651cadf05ee1c8718b1ab25" name="web/images/medium/copy.png" role="data" />
+   <file md5sum="9cb29d64bb60a5e2bc2ca82eca4d232f" name="web/images/medium/unarchive_f2.png" role="data" />
+   <file md5sum="b57309c680747cc077d60d81e49be6a8" name="web/images/medium/groups.png" role="data" />
+   <file md5sum="97a15a4f0a3e378ce9769f397cb13685" name="web/images/medium/download.png" role="data" />
+   <file md5sum="365a753691dd3934b9b9a5165a2ed630" name="web/images/medium/new.png" role="data" />
+   <file md5sum="a91859dab73dd2a6f9be18cc65fb648d" name="web/images/medium/rename.png" role="data" />
+   <file md5sum="66311374cdb94cd7551dbbf2826a325a" name="web/images/medium/week_f2.png" role="data" />
+   <file md5sum="d13fe3c95cfc375263cb3a559caaec86" name="web/images/medium/back.png" role="data" />
+   <file md5sum="aee3e0e58e7b4297299e64a0a642e0e5" name="web/images/medium/month_f2.png" role="data" />
+   <file md5sum="5cba6552fb978c3afee061032102055c" name="web/images/medium/download_f2.png" role="data" />
+   <file md5sum="c911acde043db3f6e6c260fa8e0082f2" name="web/images/medium/save.png" role="data" />
+   <file md5sum="c4ce0910d694476ccba02e6804971fcb" name="web/images/medium/reload_f2.png" role="data" />
+   <file md5sum="abadb6f6b0befe9be66159d81e583946" name="web/images/medium/calendar_f2.png" role="data" />
+   <file md5sum="d8a4ec32a9b5d38918f34f548678f9ed" name="web/images/medium/preview.png" role="data" />
+   <file md5sum="e727943eb5f72758e26fce3e5960b0bb" name="web/images/medium/upload.png" role="data" />
+   <file md5sum="772b3e185059474b85a2c18cda391704" name="web/images/medium/css.png" role="data" />
+   <file md5sum="a6903b1009338e7483bb7123947511f9" name="web/images/medium/html.png" role="data" />
+   <file md5sum="f65e464fe82ace895dffed9a73aba28e" name="web/images/medium/reload.png" role="data" />
+   <file md5sum="be26a87647679802c4a9816b006f2d41" name="web/images/medium/folder_add_f2.png" role="data" />
+   <file md5sum="32433debb2d67ee8e92c79e31ab19a43" name="web/images/medium/file.png" role="data" />
+   <file md5sum="8fe8a3312f7b59f991e0c763aa0482b2" name="web/images/medium/cut.png" role="data" />
+   <file md5sum="cd47129146b8cd7f6d880b0e348f48d9" name="web/images/medium/edit_f2.png" role="data" />
+   <file md5sum="ca69734a9ecbef032c3ec9299dd40c65" name="web/images/medium/go.png" role="data" />
+   <file md5sum="ab9116d06e5e5ba4520e7b8959f77a23" name="web/images/medium/search_f2.png" role="data" />
+   <file md5sum="9a66ad1a112bc8b643ea961adcf389bb" name="web/images/medium/publish.png" role="data" />
+   <file md5sum="0088a253c8757906e7bde53f2709fe6e" name="web/images/medium/restore_f2.png" role="data" />
+   <file md5sum="dc0df11ae6d35497ca868f518c0004db" name="web/images/medium/xml.png" role="data" />
+   <file md5sum="6145c7c8c6f27afe9ae155553225ea7a" name="web/images/medium/go_f2.png" role="data" />
+   <file md5sum="0e2e126fa2f64fb26bde939538e0e43a" name="web/images/medium/day_f2.png" role="data" />
+   <file md5sum="b6c7ca374a6939e917be1cff928da692" name="web/images/medium/downloads.png" role="data" />
+   <file md5sum="5e5be2b1fea67bdbb31137361d8ced59" name="web/images/medium/delete.png" role="data" />
+   <file md5sum="3e30b600baefc945740a2220f07703d3" name="web/images/medium/delete_f2.png" role="data" />
+   <file md5sum="c59236d4ebb7f1ca628982f746d7030f" name="web/images/medium/task_f2.png" role="data" />
+   <file md5sum="72dd0ab1a9caca73581e5d4a0f10c75a" name="web/images/medium/new_f2.png" role="data" />
+   <file md5sum="d923887e6e4ac417f5b67cc9bb087b04" name="web/images/medium/security_f2.png" role="data" />
+   <file md5sum="86ac18471b64bea7311e16d4ee8e1a89" name="web/images/medium/themes.png" role="data" />
+   <file md5sum="459f9bbbac668bb6fb4c55f388419bcc" name="web/images/medium/print.png" role="data" />
+   <file md5sum="0950d8a563bd1ea0124aa1ffac5f8e4c" name="web/images/medium/switch.png" role="data" />
+   <file md5sum="030f30e4f60b06af590b13120304075c" name="web/images/medium/upload_f2.png" role="data" />
+   <file md5sum="8a93fbc776885309286a893b48f8bec2" name="web/images/medium/unpublish.png" role="data" />
+   <file md5sum="2b21a16070d55e073aa0b953245deeef" name="web/images/medium/note.png" role="data" />
+   <file md5sum="809b351857ca85a58a159672b2fd38fd" name="web/images/medium/save_f2.png" role="data" />
+   <file md5sum="8223a2ab6888a97c284493d13b712b65" name="web/images/medium/edittime_f2.png" role="data" />
+   <file md5sum="08ec5f257d9d83cf2c0d33445ae5ceb7" name="web/images/medium/back_f2.png" role="data" />
+   <file md5sum="aea5908f732f2c9e8a3b9f9c6832ec15" name="web/images/medium/restore.png" role="data" />
+   <file md5sum="c8f0499e9d9512430c22d80b9baa07c0" name="web/images/medium/tool_f2.png" role="data" />
+   <file md5sum="9ed627762c4c5957bbdc4b096fbfe5de" name="web/images/medium/properties.png" role="data" />
+   <file md5sum="b802e66c8e98eedf057a43e86a8c9d29" name="web/images/medium/css_f2.png" role="data" />
+   <file md5sum="1276f457ece53c2042e77ae7a9619683" name="web/images/medium/downloads_f2.png" role="data" />
+   <file md5sum="5f925dccf769e70bd72d2a63f8d59627" name="web/images/medium/forward_f2.png" role="data" />
+   <file md5sum="f7de8bdd9d921bef55748b945c456ef1" name="web/images/medium/folder_add.png" role="data" />
+   <file md5sum="741bddf49757e57990df53b9070cafb9" name="web/images/medium/edittime.png" role="data" />
+   <file md5sum="b97d64d264a171ef35f5c4cd264604ab" name="web/images/medium/file_f2.png" role="data" />
+   <file md5sum="a96fa1fb3bd51786e7055088a9bdbfbe" name="web/images/medium/unarchive.png" role="data" />
+   <file md5sum="b585e758e8739cffca4f09935e33ed85" name="web/images/medium/paste_f2.png" role="data" />
+   <file md5sum="969d06cffc9ef632abf3b97650752bbf" name="web/images/medium/archive_f2.png" role="data" />
+   <file md5sum="e910ae2eb28d9fa1a62c3e13d517e5b5" name="web/images/medium/calendar.png" role="data" />
+   <file md5sum="4dc42f7814bc457bf19066be034be7ca" name="web/images/medium/print_f2.png" role="data" />
+   <file md5sum="b73a64e41d6a830b62fa27ac750c9dfb" name="web/images/medium/nomail.png" role="data" />
+   <file md5sum="a49efe7c4e90f61e0954986242939f53" name="web/images/medium/copy_f2.png" role="data" />
+   <file md5sum="3a9788a7c3ac6feb92fd6bcb8d5901eb" name="web/images/medium/xml_f2.png" role="data" />
+   <file md5sum="c07e3691e4acfd5b56eb8486c6cfdfe7" name="web/images/medium/week.png" role="data" />
+   <file md5sum="68520948da7f5d67324e26bd206cd2cc" name="web/images/medium/search.png" role="data" />
+   <file md5sum="2829692ae3500c203bb5dc2c28d255b2" name="web/images/medium/month.png" role="data" />
+   <file md5sum="8eafc1799f86cf98814cd30b8d36ba90" name="web/images/medium/tool.png" role="data" />
+   <file md5sum="24dfe1f3a62164aaeb7f8455f6064b7a" name="web/images/medium/rename_f2.png" role="data" />
+   <file md5sum="b3bee90c62769c9305d8aa6b19046616" name="web/images/medium/groups_f2.png" role="data" />
+   <file md5sum="eaeb59b49d5a537f7f29d483a679fb9f" name="web/images/medium/archive.png" role="data" />
+   <file md5sum="ee21bde31693c897d0a9807e4b48e4c2" name="web/images/medium/move_f2.png" role="data" />
+   <file md5sum="4f2a00c06c3370df07d640ede856c120" name="web/images/medium/security.png" role="data" />
+   <file md5sum="8c3d4454f778ab3c6935263a6eae5464" name="web/images/medium/paste.png" role="data" />
+   <file md5sum="35949880c5abe1f2ec29abe056a5be2a" name="web/images/medium/cut_f2.png" role="data" />
+   <file md5sum="d4a88af4fe5eb27a310b62106c2fd8ce" name="web/images/medium/html_f2.png" role="data" />
+   <file md5sum="e13902a976e37e612f3029c579fca339" name="web/images/medium/extensions_f2.png" role="data" />
+   <file md5sum="b4280b8c1a47ca04831f5fc5569e4e22" name="web/images/medium/edit.png" role="data" />
+   <file md5sum="f20d0589586ea1f5bcdfb72a40b5ba42" name="web/images/medium/properties_f2.png" role="data" />
+   <file md5sum="bb6f9ebefff65e4803baa38c34710450" name="web/images/medium/day.png" role="data" />
+   <file md5sum="21acf4ffeb11c010479b05b632fe73bb" name="web/images/medium/themes_f2.png" role="data" />
+   <file md5sum="e03c96a063b1cd89820be70ec63815b7" name="web/images/medium/note_f2.png" role="data" />
+   <file md5sum="0650c4fec7f293a13344c999f836b55b" name="web/images/medium/apply_f2.png" role="data" />
+   <file md5sum="e09cfc997e61631b7c1c62945743c16f" name="web/images/medium/next_f2.png" role="data" />
+   <file md5sum="6c374376ca41274db2b906e1114a4cfb" name="web/images/medium/move.png" role="data" />
+   <file md5sum="73ddcdb8229f04d6473c9ba8bdd0cfea" name="web/images/last.png" role="data" />
+   <file md5sum="512d5c125d21405d508c10163e2891dc" name="web/images/header_bg.png" role="data" />
+   <file md5sum="a0bab3570268999accd61a785ca2e045" name="web/images/next.png" role="data" />
+   <file md5sum="72db9f48cc6ce7c88a55f8feb7e6d3f4" name="web/images/disabled.png" role="data" />
+   <file md5sum="09bc4d7083d6c900624055e28d26cc31" name="web/images/header_text.png" role="data" />
+   <file md5sum="22d1ebb1a783e1715ee7c21e2b020014" name="web/images/menubardown.gif" role="data" />
+   <file md5sum="e2f928c36627d5b17a8c9c9a5e07bb05" name="web/images/new.png" role="data" />
+   <file md5sum="7108a6be1b2f201caff94f1fbb8ecffa" name="web/images/checked_out.png" role="data" />
+   <file md5sum="05e8d1ff9dc55aad50ad54c57e99d188" name="web/images/blank.png" role="data" />
+   <file md5sum="0d11a9d9767b21615a01e042401f4278" name="web/images/downarrow0.png" role="data" />
+   <file md5sum="477b07bbb58f46d245f6003802d48316" name="web/images/downarrow-1.png" role="data" />
+   <file md5sum="c68767b36ba806a5982db9bc542c7974" name="web/images/collapseall.png" role="data" />
+   <file md5sum="e7badde62ba53cc8ae44d8df102c68d4" name="web/images/downarrow.png" role="data" />
+   <file md5sum="b7c421fb5c3047f2df7c4468ef58b363" name="web/images/login_error.png" role="data" />
+   <file md5sum="01210df03d8b8949931a98ee006bddaf" name="web/images/login.gif" role="data" />
+   <file md5sum="eabe156fedfa207b20db5910df3880a5" name="web/images/error.png" role="data" />
+   <file md5sum="6a39b61050e9f939487a70b5d979fb00" name="web/images/delete.png" role="data" />
+   <file md5sum="ce641df68dc68f1588e7b2fc431ccef2" name="web/images/users.png" role="data" />
+   <file md5sum="d1199823681f9d96cc9030139f9452f6" name="web/images/uparrow-1.png" role="data" />
+   <file md5sum="5ef24c8654fc5821093dd6a1062575f7" name="web/images/publish_r.png" role="data" />
+   <file md5sum="c456f34187b44bed7cb148b6b5cef4cc" name="web/images/mail.png" role="data" />
+   <file md5sum="6fc281a2e1b5ac1396a0341b40b4a608" name="web/images/menubardownhover.gif" role="data" />
+   <file md5sum="a06fa4fad678a9237271dc1dfc1fcc0c" name="web/images/x.png" role="data" />
+   <file md5sum="dcc84c6015defb5d53932e2d804df161" name="web/images/publish_g.png" role="data" />
+   <file md5sum="7e82e1d6aeedf6edd0ac47d535b035f5" name="web/images/tick.png" role="data" />
+   <file md5sum="fb3a7cae82dddb2f7cb213aeb7fc51b3" name="web/images/default.png" role="data" />
+   <file md5sum="fb3a7cae82dddb2f7cb213aeb7fc51b3" name="web/images/list.png" role="data" />
+   <file md5sum="1c7937bbfc6159b2f445e4bd5af7f01b" name="web/images/background.jpg" role="data" />
+   <file md5sum="e8eea6822e108c31153ad62b0baea351" name="web/images/login_security.png" role="data" />
+   <file md5sum="73efac62eee333791c162b9b2e89f6f0" name="web/images/desc.png" role="data" />
+   <file md5sum="ecbbb0e7b08907bf58a5438c95682b26" name="web/images/filesave.png" role="data" />
+   <file md5sum="c719baee2f3e9e7a134a2eea906b478b" name="web/images/publish_y.png" role="data" />
+   <file md5sum="a764eb57324079f738fe2ff29aa465b6" name="web/images/warning.png" role="data" />
+   <file md5sum="c8a2c454743f2c676aa45e768e4e30b6" name="web/images/expandall.png" role="data" />
+   <file md5sum="6eda11598820574aa6463a049260e7d7" name="web/images/first.png" role="data" />
+   <file md5sum="f3415519a8c9caa9a465adefefab62e0" name="web/images/menu_divider.png" role="data" />
+   <file md5sum="a06fa4fad678a9237271dc1dfc1fcc0c" name="web/images/publish_x.png" role="data" />
+   <file md5sum="da2a748d8c6a13617e86a46bd80f5a04" name="web/images/asc.png" role="data" />
+   <file md5sum="9a88250df838460a070663a8ba48ab3d" name="web/images/uparrow.png" role="data" />
+   <file md5sum="be50e30d062c600d679701409f571487" name="web/images/previous.png" role="data" />
+   <file md5sum="6b804947fd5be9525de671a88c92252f" name="web/images/edit.png" role="data" />
+   <file md5sum="02b200e8eef5417cedeb9789602121bf" name="web/images/uparrow0.png" role="data" />
+   <file md5sum="1cbc5cf37be970c921090016a0c587c5" name="lib/sfAdminDash.class.php" role="data" />
+   <file md5sum="c0f4a3e06e185a60d96059c7da8ff6e0" name="LICENSE" role="data" />
+   <file md5sum="42600ec05935d440d50888efdcc06aec" name="README" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.4</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.1</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+    <max>1.3.0</max>
+    <exclude>1.3.0</exclude>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+    <release>
+      <version>
+        <release>0.8.0</release>
+        <api>0.8.0</api>
+      </version>
+      <stability>
+        <release>beta</release>
+        <api>beta</api>
+      </stability>
+      <date>2009-02-04</date>
+      <license uri="http://www.symfony-project.org/license">MIT license</license>
+      <notes>
+      * kevin: initial public release
+      </notes>
+    </release>
+  </changelog>
+</package>

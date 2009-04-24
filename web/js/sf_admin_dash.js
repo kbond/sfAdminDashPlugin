@@ -34,4 +34,8 @@ jQuery(function(){
         jQuery('ul', this).css('display', 'none');
         jQuery(this).removeClass('nodehover');
       });
+
+    jQuery('li.node').click(function() {
+      return false;
+    });
 	});

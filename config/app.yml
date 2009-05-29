@@ -6,4 +6,5 @@ all:
     resize_mode:          thumbnail
     logout:               yes
     site:                 My Site
+    include_path:         yes
     include_jquery:       yes

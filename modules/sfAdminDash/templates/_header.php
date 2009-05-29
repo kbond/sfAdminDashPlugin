@@ -7,6 +7,7 @@
   <?php endif; ?>
   <div class="clear"></div>
 </div>
+<?php   if(sfAdminDash::getProperty('include_path')): ?>
 <div id='sf_admin_path'>
   <strong><a href='<?php echo url_for('homepage') ?>'><?php echo sfAdminDash::getProperty('site') ?></a></strong> /
   <?php if ($sf_context->getActionName() != 'dashboard'): ?>
@@ -16,4 +17,5 @@
     <?php endif; ?>
   <?php endif; ?>
 </div>
+<?php   endif; ?>
 <?php endif; ?>

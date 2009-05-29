@@ -2,8 +2,6 @@
 
 var image_dir = '../images/sf_admin/';
 
-jQuery.noConflict();
-
 //adjust table to fit filters if they exist
 jQuery(function() {
   if (jQuery('#sf_admin_bar').size()) {

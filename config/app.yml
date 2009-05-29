@@ -7,4 +7,3 @@ all:
     logout:               yes
     site:                 My Site
     include_jquery:       yes
-

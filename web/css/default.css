@@ -545,3 +545,22 @@ li.node a:hover
   color: #C64934
 }
 
+li.item-menu
+{
+  display: block;
+  float: left;
+  position: relative;
+  padding: 7px 10px 7px 10px;
+}
+
+li.item-menu a, li.item-menu a:visited
+{ 
+  text-decoration: none;
+  font-weight: bold;
+  color: #222;
+}
+
+li.item-menu a:hover
+{
+  color: #C64934
+}

@@ -2,6 +2,26 @@
 
 class sfAdminDash {
 
+	public static function itemInMenu($item)
+	{
+		if(!isset($item['in_menu'])) return true;
+
+	  return $item['in_menu'];	
+	}
+	
+	public static function hasItemsMenu($items)
+	{
+		foreach($items as $item)
+		{
+			if(self::itemInMenu($item))
+			{
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
   public static function getItems()
   {
     return self::getProperty('items');

@@ -65,5 +65,11 @@ class sfAdminDashComponents extends sfComponents
     {
       $this->item['url'] = $this->key;
     }
+    
+    //if in_menu isn't specified - use true
+    if (!array_key_exists('in_menu', $this->item))
+    {
+      $this->item['in_menu'] = true;
+    }
   }
 }

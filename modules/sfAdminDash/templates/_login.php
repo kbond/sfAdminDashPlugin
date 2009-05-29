@@ -5,7 +5,6 @@
         <img alt="Login" src="/sfAdminDashPlugin/images/login.gif" />
         <div class="form-block">
           <?php echo $form->renderGlobalErrors() ?>
-          <?php echo $form['_csrf_token']->render(); ?>
           <div class="inputlabel"><?php echo $form['username']->renderLabel() ?>:</div>
           <div>
             <?php echo $form['username']->renderError() ?>

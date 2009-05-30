@@ -281,7 +281,7 @@ font-style: italic;
   padding: 0 1em 3px 0;
   float: left;
   text-align: left;
-  width: 8em;
+  width: 9em;
   color: #666;
   font-weight: normal !important;
 }
@@ -354,7 +354,7 @@ font-style: italic;
   border-bottom: 1px solid #cccccc;
 }
 
-#sf_admin_footer
+#sf_admin_theme_footer
 {
   text-align: center;
   font-size: .8em;

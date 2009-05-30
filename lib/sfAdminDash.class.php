@@ -28,9 +28,7 @@ class sfAdminDash {
   }
 
   public static function getCategories()
-  {
-    $categories = self::getProperty('categories');
-    
+  {    
     return self::getProperty('categories');
   }
 

@@ -1,5 +1,5 @@
 <?php include_partial('sfAdminDash/header_top') ?>
-<?php if (($sf_context->getModuleName() != 'sfAdminAuth') && ($sf_context->getActionName() != 'signin')): ?>
+<?php if (($sf_context->getModuleName() != 'sfGuardAuth') && ($sf_context->getActionName() != 'signin')): ?>
 <div id='sf_admin_menu'>    
   <?php include_component('sfAdminDash', 'menu') ?>
   <?php if (sfAdminDash::getProperty('logout') && ($sf_user->isAuthenticated())): ?>

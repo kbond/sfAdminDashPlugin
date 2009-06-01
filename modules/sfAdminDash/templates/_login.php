@@ -1,9 +1,9 @@
-<?php use_helper('I18n'); ?>
+<?php use_helper('I18N'); ?>
 <div id="ctr" align="center">
   <div class="login">
     <div class="login-form">
       <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
-        <img alt="Login" src="/sfAdminDashPlugin/images/login.gif" />
+        <img alt="Login" src="<?php echo image_path('/sfAdminDashPlugin/images/login.gif'); ?>" />
         <div class="form-block">
           <?php echo $form->renderGlobalErrors() ?>
           <?php echo $form['_csrf_token']->render(); ?>
@@ -26,7 +26,7 @@
       </form>
     </div>
     <div class="login-text">
-      <div class="ctr"><img alt="Security" src="/sfAdminDashPlugin/images/login_security.png" /></div>
+      <div class="ctr"><img alt="Security" src="<?php echo image_path('/sfAdminDashPlugin/images/login_security.png'); ?>" /></div>
       <p><?php echo __('Welcome to', array(), 'sf_admin_dash'); ?> <?php echo sfAdminDash::getProperty('site') ?></p>
       <p><?php echo __('Use a valid username and password to gain access to the administration console.', array(), 'sf_admin_dash'); ?></p>
     </div>

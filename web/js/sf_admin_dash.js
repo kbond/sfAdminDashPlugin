@@ -33,7 +33,7 @@ jQuery(function(){
         jQuery(this).removeClass('nodehover');
       });
 
-    jQuery('li.node').click(function() {
+    jQuery('li.node a[href=#]').click(function() {
       return false;
     });
 	});

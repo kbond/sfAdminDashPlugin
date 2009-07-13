@@ -11,9 +11,9 @@
 <div id='sf_admin_path'>
   <strong><a href='<?php echo url_for('homepage') ?>'><?php echo sfAdminDash::getProperty('site') ?></a></strong> /
   <?php if ($sf_context->getActionName() != 'dashboard'): ?>
-    <?php echo $sf_context->getModuleName() ?> /
+    <?php echo sfAdminDash::getModuleName(); ?> /
     <?php if ($sf_context->getActionName() != 'index'): ?>
-      <?php echo $sf_context->getActionName() ?>
+      <?php echo sfAdminDash::getActionName(); ?>
     <?php endif; ?>
   <?php endif; ?>
 </div>

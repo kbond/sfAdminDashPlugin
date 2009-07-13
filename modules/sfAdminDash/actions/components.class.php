@@ -28,6 +28,7 @@ class sfAdminDashComponents extends sfComponents
 
     $this->cats = sfAdminDash::getCategories();;
   }
+  
   protected function InitItem($resize_mode = 'html')
   {
     $image = sfAdminDash::getProperty('default_image');
@@ -37,22 +38,14 @@ class sfAdminDashComponents extends sfComponents
       $image = $this->item['image'];
     }
 
-    $this->item['image'] = sfAdminDash::getProperty('image_dir');
+    $image = (substr($image, 0, 1) == "/") ? $image : (sfAdminDash::getProperty('image_dir') . $image);
 
     if ($resize_mode == 'thumbnail')
     {
-      $this->item['image'] .= 'small/';
+      $last_slash = strrpos($image, "/");
+      $image = substr($image, 0, $last_slash)."/small/".substr($image, $last_slash + 1);
     }
-
-    //if image isn't specified - use default
-    if (!array_key_exists('image', $this->item))
-    {
-      $this->item['image'] .= $image;
-    }
-    else
-    {
-      $this->item['image'] .= $image;
-    }
+    $this->item['image'] = $image;
 
     //if name isn't specified - use key
     if (!array_key_exists('name', $this->item))

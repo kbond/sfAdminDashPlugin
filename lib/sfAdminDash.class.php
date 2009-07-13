@@ -58,4 +58,32 @@ class sfAdminDash {
       return false;
     }
   }
+  
+  public static function getModuleName()
+  {
+  	$modulename = sfContext::getInstance() -> getModuleName();
+  	$translation = self::getProperty("translator", array());
+  	
+  	if(isset($translation[$modulename]))
+  	{
+  		if(is_array($translation[$modulename]))
+  		{	
+  			return empty($translation[$modulename]["title"]) ? $modulename : $translation[$modulename]["title"];	
+  		}
+  		else
+  		{
+  			return $translation[$modulename];
+  		}
+  	}
+  	return $modulename;
+  }
+  
+  public static function getActionName()
+  {
+  	$modulename = sfContext::getInstance() -> getModuleName();
+  	$actionname = sfContext::getInstance() -> getActionName();
+  	$translation = self::getProperty("translator", array());
+  	
+  	return isset($translation[$modulename]["actions"][$actionname]) ? $translation[$modulename]["actions"][$actionname] : $actionname;
+  }
 }

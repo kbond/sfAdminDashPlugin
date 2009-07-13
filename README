@@ -128,7 +128,8 @@ Article.
 This creates 2 items on the dashboard and a *Menu* dropdown.  The url 
 property should be an internal URI.  You can also set credentials and an 
 image.  The *image* property is just the image name - its location is 
-specified in the global settings.
+specified in the global settings. Alternatively you can also specify an 
+absolute image url, like so image: /somefolder/someimage.jpg. 
 
   The credential property can be used to hide options from users who do 
 not have specific credentials.  This gives the ability for different 
@@ -198,6 +199,18 @@ their own dropdown menu.
 
 This hides the entire category from the user if they don't have the 
 **admin** credential.
+
+By default the plugin header prints a cookie trail in the format "module / action".
+To make module and action names more userfriendly, you can overwrite them using the 
+"translator" property like so:
+
+    all:
+      sf_admin_dash:
+        translator:
+          sfGuardUser:
+            title: Users
+            actions:
+              editUser:  edit
 
 ###Step 6 (optional) - setting up login screen
 

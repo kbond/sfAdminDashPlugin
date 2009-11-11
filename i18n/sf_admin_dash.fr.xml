@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="messages" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Welcome to</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Use a valid username and password to gain access to the administration console.</source>
+        <target>Veuillez saisir un identifiant et mot de passe valide pour accéder au console de l'administration</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Username</source>
+        <target>Identifiant</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Remember?</source>
+        <target> Garder ma session ouverte?</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

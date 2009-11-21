@@ -10,7 +10,7 @@
       </trans-unit>
       <trans-unit id="2">
         <source>Use a valid username and password to gain access to the administration console.</source>
-        <target>Verwende ein gültigen Benutzernamen und Passwort, um Zugang zur Administration zu bekommen.</target>
+        <target>Verwenden Sie einen gültigen Benutzernamen und Passwort, um Zugang zum Administrationssystem zu erhalten.</target>
       </trans-unit>
       <trans-unit id="3">
         <source>Username</source>
@@ -18,7 +18,7 @@
       </trans-unit>
       <trans-unit id="4">
         <source>Remember?</source>
-        <target>Passwort vergessen?</target>
+        <target>Dauerhaft eingelogt bleiben?</target>
       </trans-unit>
     </body>
   </file>

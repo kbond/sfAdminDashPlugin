@@ -110,7 +110,7 @@
   padding-left: 25px;
   list-style: none;
   color: #fff;
-  background: url(../../sfPropelPlugin/images/error.png) no-repeat 4px 4px;
+  background: url(../images/error.png) no-repeat 4px 4px;
 }
 
 #sf_admin_container input, #sf_admin_container textarea
@@ -198,34 +198,34 @@
 #sf_admin_container ul li a
 {
   padding-left: 20px;
-  background: url(../../sfPropelPlugin/images/default.png) no-repeat 0 0;
+  background: url(../images/default.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_new a
 {
-  background: url(../../sfPropelPlugin/images/new.png) no-repeat 0 0;
+  background: url(../images/new.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_delete a
 {
-  background: url(../../sfPropelPlugin/images/delete.png) no-repeat 0 0;
+  background: url(../images/delete.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_list a
 {
-  background: url(../../sfPropelPlugin/images/list.png) no-repeat 0 0;
+  background: url(../images/list.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_edit a
 {
-  background: url(../../sfPropelPlugin/images/edit.png) no-repeat 0 0;
+  background: url(../images/edit.png) no-repeat 0 0;
 }
 
 #sf_admin_container .notice
 {
   margin: 4px 0;
   padding: 4px 4px 4px 30px;
-  background: url(../../sfPropelPlugin/images/tick.png) no-repeat 10px 4px;
+  background: url(../images/tick.png) no-repeat 10px 4px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #ffc;
@@ -235,7 +235,7 @@
 {
   margin: 4px 0;
   padding: 4px 4px 4px 30px;
-  background: url(../../sfPropelPlugin/images/error.png) no-repeat 10px 4px;
+  background: url(../images/error.png) no-repeat 10px 4px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #f33;

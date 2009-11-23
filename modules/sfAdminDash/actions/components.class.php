@@ -16,7 +16,7 @@ class sfAdminDashComponents extends sfComponents
   {
     $this->items = sfAdminDash::getItems();
 
-    $this->cats = sfAdminDash::getCategories();;
+    $this->cats = sfAdminDash::getCategories();
   }
   
 

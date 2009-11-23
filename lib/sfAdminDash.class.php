@@ -4,7 +4,10 @@ class sfAdminDash {
 
 	public static function itemInMenu($item)
 	{
-		if(!isset($item['in_menu'])) return true;
+		if (!isset($item['in_menu']))
+    {
+      return true;
+    }
 
 	  return $item['in_menu'];	
 	}
@@ -24,7 +27,10 @@ class sfAdminDash {
 	
   public static function getItems()
   {
-    return self::getProperty('items', array());
+    $items = self::getProperty('items', array());         
+    array_walk($items, 'sfAdminDash::initItem');
+    
+    return $items;
   }
   
   public static function getAllItems()
@@ -44,7 +50,16 @@ class sfAdminDash {
 
   public static function getCategories()
   {    
-    return self::getProperty('categories', array());
+    $categories = self::getProperty('categories', array());
+    foreach ($categories as $category_name => $category_data)
+    {
+      if (isset($category_data['items']))
+      {            
+        array_walk($categories[$category_name]['items'], 'sfAdminDash::initItem');
+      }
+    }
+    
+    return $categories;
   }
 
   public static function getProperty($val, $default = null)
@@ -59,6 +74,11 @@ class sfAdminDash {
       return false;
     }
 
+    if ($item instanceof sfOutputEscaper)
+    {
+      $item->getRawValue();
+    }
+    
     if (!array_key_exists('credentials', $item))
     {
       return true;
@@ -111,16 +131,10 @@ class sfAdminDash {
   	return isset($translation[$modulename]["actions"][$actionname]) ? $translation[$modulename]["actions"][$actionname] : $actionname;
   }
   
-  public static function initItem($key, &$item, $resize_mode = 'html')
+  public static function initItem(&$item, $key)
   {
     $image = isset($item['image']) ? $item['image'] : sfAdminDash::getProperty('default_image');
     $image = (substr($image, 0, 1) == '/') ? $image : (sfAdminDash::getProperty('image_dir') . $image);
-
-    if ('thumbnail' == $resize_mode)
-    {
-      $last_slash = strrpos($image, '/');
-      $image = substr($image, 0, $last_slash).'/small/'.substr($image, $last_slash + 1);
-    }
 
     $item['image'] = $image;
 
@@ -131,6 +145,6 @@ class sfAdminDash {
     $item['url'] = isset($item['url']) ? $item['url'] : $key;    
     
     //if in_menu isn't specified - use true
-    $item['in_menu'] = isset($item['in_menu']) ? $item['in_menu'] : true;
+    $item['in_menu'] = self::itemInMenu($item);
   }  
 }

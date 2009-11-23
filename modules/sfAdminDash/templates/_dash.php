@@ -1,6 +1,6 @@
-<?php if ($items): ?>
+<?php if ($sf_data->getRaw('items')): ?>
   <?php include_partial('dash_list', array('items' => $items)) ?>
-<?php elseif ($cats): ?>
+<?php elseif ($sf_data->getRaw('cats')): ?>
   <?php foreach ($cats as $name => $cat): ?>
     <?php if (sfAdminDash::hasPermission($cat, $sf_user)): ?>
       <h2><?php echo isset($cat['name']) ? $cat['name'] : $name ?></h2>

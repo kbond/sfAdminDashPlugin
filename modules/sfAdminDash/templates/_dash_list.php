@@ -1,9 +1,9 @@
 <div class="cpanel">
   <?php foreach ($items as $key => $item): ?>
-    <?php if (sfAdminDash::hasPermission($item, $sf_user)): sfAdminDash::initItem($key, $item); ?>
+    <?php if (sfAdminDash::hasPermission($item, $sf_user)):?>
       <div style="float: left">
         <div class="icon">
-          <a href="<?php echo url_for($item['url']) ?>">    
+          <a href="<?php echo url_for($item['url']) ?>" title="<?php echo $item['name']; ?>">    
             <?php echo image_tag($item['image'], array('alt' => $item['name'])) ?>
             <span><?php echo $item['name'] ?></span>
           </a>

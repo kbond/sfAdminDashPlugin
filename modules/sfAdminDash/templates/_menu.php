@@ -1,4 +1,4 @@
-<?php if ($items): ?>
+<?php if ($sf_data->getRaw('items')): ?>
 <ul>
   <?php if(sfAdminDash::hasItemsMenu($items)): ?>
   <li class="node"><a href="#">Menu</a>

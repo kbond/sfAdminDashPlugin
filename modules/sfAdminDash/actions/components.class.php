@@ -14,9 +14,9 @@ class sfAdminDashComponents extends sfComponents
 
   protected function parseSettings()
   {
-    $this->items = sfAdminDash::getItems();
+    $this->items = isset($this->items) ? $this->items : sfAdminDash::getItems();
 
-    $this->cats = sfAdminDash::getCategories();
+    $this->cats =  isset($this->cats) ? $this->cats : sfAdminDash::getCategories();
   }
   
 

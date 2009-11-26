@@ -1,4 +1,4 @@
-<?php include_partial('sfAdminDash/header_top') ?>
+<?php use_helper('I18N'); include_partial('sfAdminDash/header_top') ?>
 <?php if (($sf_context->getModuleName() != 'sfGuardAuth') && ($sf_context->getActionName() != 'signin')): ?>
   <div id='sf_admin_menu'>    
     <?php include_component('sfAdminDash', 'menu') ?>

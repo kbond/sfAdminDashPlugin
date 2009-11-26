@@ -4,12 +4,7 @@ class sfAdminDash {
 
 	public static function itemInMenu($item)
 	{
-		if (!isset($item['in_menu']))
-    {
-      return true;
-    }
-
-	  return $item['in_menu'];	
+	  return isset($item['in_menu']) ? $item['in_menu'] : true;	
 	}
 	
 	public static function hasItemsMenu($items)
@@ -122,6 +117,11 @@ class sfAdminDash {
   	return $modulename;
   }
   
+  public static function getMainRoteForRoteCollection(sfWebRequest $request)
+  {
+    
+  }
+  
   public static function getActionName()
   {
   	$modulename = sfContext::getInstance() -> getModuleName();
@@ -145,6 +145,6 @@ class sfAdminDash {
     $item['url'] = isset($item['url']) ? $item['url'] : $key;    
     
     //if in_menu isn't specified - use true
-    $item['in_menu'] = self::itemInMenu($item);
+    $item['in_menu'] = isset($item['in_menu']) ? $item['in_menu'] : true;
   }  
 }

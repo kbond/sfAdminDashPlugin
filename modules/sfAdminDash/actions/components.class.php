@@ -1,23 +1,14 @@
 <?php
+require_once(dirname(__FILE__).'/../lib/BasesfAdminDashComponents.class.php');
 
-class sfAdminDashComponents extends sfComponents
+/**
+ * sfAdminDash components.
+ *
+ * @package    plugins
+ * @subpackage sfAdminDash
+ * @author     kevin
+ * @version    SVN: $Id: components.class.php 12479 2008-10-31 10:54:40Z fabien $
+ */ 
+class sfAdminDashComponents extends BasesfAdminDashComponents
 {
-  public function executeDash()
-  {
-    $this->parseSettings();
-  }
-
-  public function executeMenu()
-  {
-    $this->parseSettings();
-  }
-
-  protected function parseSettings()
-  {
-    $this->items = isset($this->items) ? $this->items : sfAdminDash::getItems();
-
-    $this->cats =  isset($this->cats) ? $this->cats : sfAdminDash::getCategories();
-  }
-  
-
 }

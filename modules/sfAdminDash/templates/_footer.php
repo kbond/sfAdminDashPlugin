@@ -1,3 +1,7 @@
+<?php
+  use_helper('I18N');
+?>  
+
 <div id='sf_admin_theme_footer'>
-  Copyright &copy; <?php echo date('Y') ?> <?php echo sfAdminDash::getProperty('site') ?>. All rights reserved.
+  <?php echo __('Copyright &copy; %current_year% %site_name%. All rights reserved', array('%current_year%' => date('Y'), '%site_name%' => sfAdminDash::getProperty('site'))); ?>
 </div>

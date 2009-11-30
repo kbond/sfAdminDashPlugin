@@ -1,21 +1,15 @@
 <?php
+require_once(dirname(__FILE__).'/../lib/BasesfAdminDashActions.class.php');
 
 /**
  * sfAdminDash actions.
  *
- * @package    symfony12
+ * @package    plugins
  * @subpackage sfAdminDash
  * @author     kevin
  * @version    SVN: $Id: actions.class.php 12479 2008-10-31 10:54:40Z fabien $
- */
-class sfAdminDashActions extends sfActions
+ */ 
+class sfAdminDashActions extends BasesfAdminDashActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeDashboard(sfWebRequest $request)
-  {    
-  }
+  
 }

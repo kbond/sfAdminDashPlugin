@@ -1,4 +1,22 @@
+<?php
+  use_helper('I18N');
+  /** @var Array of menu items */ $items;
+  /** @var Array of categories, each containing an array of menu items and settings */ $categories;
+?>
+  
 <div id="sf_admin_container">
-  <h1>Dashboard</h1>
-  <?php include_component('sfAdminDash', 'dash') ?>
+  <h1><?php echo __('Dashboard'); ?></h1>
+  <?php if ($sf_data->getRaw('items')): ?>
+    <?php include_partial('dash_list', array('items' => $items)); ?>
+  <?php endif; ?>
+  <?php if ($sf_data->getRaw('categories')): ?>
+    <?php foreach ($categories as $name => $category): ?>
+      <?php if (sfAdminDash::hasPermission($category, $sf_user)): ?>
+        <h2><?php echo __(isset($category['name']) ? $category['name'] : $name, null, 'sf_admin_dash'); ?></h2>
+        <?php include_partial('dash_list', array('items' => $category['items'])); ?>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <?php echo __('sfAdminDashPlugin is not configured.  Please see the %documentation_link%.', array('%documentation_link%'=>link_to(__('documentation', null, 'sf_admin_dash'), 'http://www.symfony-project.org/plugins/sfAdminDashPlugin?tab=plugin_readme', array('title' => __('documentation', null, 'sf_admin_dash')))), 'sf_admin_dash'); ?>
+  <?php endif; ?>
 </div>

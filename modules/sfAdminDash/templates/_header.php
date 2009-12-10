@@ -15,7 +15,7 @@
     <?php include_partial('sfAdminDash/menu', array('items' => $items, 'categories' => $categories)); ?>
     
     <?php if (sfAdminDash::getProperty('logout') && $sf_user->isAuthenticated()): ?>
-      <div id="logout"><?php echo link_to(__('Logout', null, 'sf_admin_dash'), sfAdminDash::getProperty('logout_route', 'sfGuardAuth/signout')); ?> <?php echo $sf_user; ?></div>
+      <div id="logout"><?php echo link_to(__('Logout', null, 'sf_admin_dash'), sfAdminDash::getProperty('logout_route', '@sf_guard_signout ')); ?> <?php echo $sf_user; ?></div>
     <?php endif; ?>
     <div class="clear"></div>
   </div>

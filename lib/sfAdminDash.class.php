@@ -1,17 +1,40 @@
 <?php
+/**
+ * sfAdminDash main class
+ *
+ * @package    plugins
+ * @subpackage sfAdminDash
+ * @author     kevin
+ * @version    SVN: $Id$
+ */ 
+class sfAdminDash 
+{
 
-class sfAdminDash {
-
+  /**
+  * Check if the item is allowed to go in the menu
+  * 
+  * @param array $item
+  * 
+  * @return boolean
+  */
 	public static function itemInMenu($item)
 	{
 	  return isset($item['in_menu']) ? $item['in_menu'] : true;	
 	}
 	
+  
+  /**
+  * Check if there is at least one item in the supplied array that is allowed to go in the menu
+  * 
+  * @param array $items
+  * 
+  * @return boolean
+  */
 	public static function hasItemsMenu($items)
 	{
 		foreach($items as $item)
 		{
-			if(self::itemInMenu($item))
+			if (self::itemInMenu($item))
 			{
 				return true;
 			}
@@ -20,6 +43,15 @@ class sfAdminDash {
 		return false;
 	}
 	
+  
+  /**
+  * Return the items from the sf_admin_dash configuration
+  * 
+  * @return array
+  * 
+  * @see sfAdminDash::initItem()  All items are initialized before being returned through this method
+  * @see sfAdminDash::getProperty()
+  */
   public static function getItems()
   {
     $items = self::getProperty('items', array());         
@@ -28,6 +60,16 @@ class sfAdminDash {
     return $items;
   }
   
+  
+  /**
+  * Return all items from the configuration, conbining the one from the plain items array and the categories
+  * 
+  * @return array
+  * 
+  * @see sfAdminDash::getItems()
+  * @see sfAdminDash::getCategories()
+  * @see sfAdminDash::getProperty()
+  */
   public static function getAllItems()
   {
     $items = self::getItems();
@@ -43,6 +85,13 @@ class sfAdminDash {
     return $items;
   }
 
+  
+  /**
+  * Return the categories as defined in the configuration, initializing their items (if they have any)
+  * 
+  * @see sfAdminDash::initItem()
+  * @see sfAdminDash::getProperty()
+  */
   public static function getCategories()
   {    
     $categories = self::getProperty('categories', array());
@@ -57,11 +106,26 @@ class sfAdminDash {
     return $categories;
   }
 
+  
+  /**
+  * A proxy method to sfConfig::get(), used bacause it's more readible this way
+  * 
+  * @param string $val The name of the config value we want
+  * @param mixed $default The default value to be returned if the config option is not set
+  * @return string|array
+  */
   public static function getProperty($val, $default = null)
   {
     return sfConfig::get('app_sf_admin_dash_'.$val, $default);
   }
 
+  
+  /**
+  * Check if the user the necessary credentials to see this particular item
+  * 
+  * @param array $item
+  * @param sfUser $user
+  */
   public static function hasPermission($item, $user)
   {
     if (!$user->isAuthenticated())
@@ -69,27 +133,48 @@ class sfAdminDash {
       return false;
     }
 
-    if ($item instanceof sfOutputEscaper)
+    return isset($item['credentials']) ? $user->hasCredential($item['credentials']) : true;
+  }
+   
+  
+  /**
+  * Check if the supplied route exists
+  * 
+  * @param string $route
+  * @param sfContext $context
+  * 
+  * @return boolean
+  */
+  public static function routeExists($route, sfContext $context)
+  {
+    try
     {
-      $item->getRawValue();
-    }
-    
-    if (!array_key_exists('credentials', $item))
-    {
+      $context->getRouting()->generate($route);
       return true;
     }
-
-    return $user->hasCredential($item['credentials']);
+    catch (Exception $e)
+    {
+      return false;
+    }
   }
+                   
   
-  public static function getModuleName()
+  /**
+  * Get the current module name (as defined in the sfAdminDash configuration), if possible, with translation
+  * If no specific name was found for the module name, it is returned as is
+  * 
+  * @param sfContext $context
+  * 
+  * @return string
+  */
+  public static function getModuleName(sfContext $context)
   {
-  	$modulename = sfContext::getInstance() -> getModuleName();
+  	$modulename = $context -> getModuleName();
   	$translation = self::getProperty("translator", array());
   	
-  	if(isset($translation[$modulename]))
+  	if (isset($translation[$modulename]))
   	{
-  		if(is_array($translation[$modulename]))
+  		if (is_array($translation[$modulename]))
   		{	
   			return empty($translation[$modulename]["title"]) ? $modulename : $translation[$modulename]["title"];	
   		}
@@ -102,7 +187,7 @@ class sfAdminDash {
     else foreach (self::getAllItems() as $key => $item)
     {                          
       if (($modulename == $key || $modulename == $item['url']))
-      {
+      {                                                       
         if (isset($item['name']))
         {
           return $item['name']; // yay, we got the name!
@@ -117,20 +202,30 @@ class sfAdminDash {
   	return $modulename;
   }
   
-  public static function getMainRoteForRoteCollection(sfWebRequest $request)
-  {
-    
-  }
   
-  public static function getActionName()
+  /**
+  * Get the current action name, with translatio, if possible
+  * 
+  * @param sfContext $context
+  * 
+  * @return string
+  */
+  public static function getActionName(sfContext $context)
   {
-  	$modulename = sfContext::getInstance() -> getModuleName();
-  	$actionname = sfContext::getInstance() -> getActionName();
+  	$modulename = $context -> getModuleName();
+  	$actionname = $context -> getActionName();
   	$translation = self::getProperty("translator", array());
   	
   	return isset($translation[$modulename]["actions"][$actionname]) ? $translation[$modulename]["actions"][$actionname] : $actionname;
   }
+    
   
+  /**
+  * This function primes the item for use, making sure all required fields are set
+  * 
+  * @param array $item The item data, sent by reference
+  * @param string|integer $key  The key that points to the specific item
+  */
   public static function initItem(&$item, $key)
   {
     $image = isset($item['image']) ? $item['image'] : sfAdminDash::getProperty('default_image');

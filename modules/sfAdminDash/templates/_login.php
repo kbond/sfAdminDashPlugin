@@ -5,7 +5,7 @@
 <div id="ctr" align="center">
   <div class="login">
     <div class="login-form">
-      <form action="<?php echo url_for('@sf_guard_signin'); ?>" method="post">
+      <form action="<?php echo url_for(sfAdminDash::getProperty('login_route', '@sf_guard_signin')); ?>" method="post">
         <img alt="Login" src="<?php echo image_path(sfAdminDash::getProperty('web_dir', '/sfAdminDashPlugin').'/images/login.gif'); ?>" />
         <div class="form-block">
           <?php echo $form->renderGlobalErrors(); ?>

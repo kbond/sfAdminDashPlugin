@@ -5,7 +5,7 @@
  * @package    plugins
  * @subpackage sfAdminDash
  * @author     Ivan Tanev aka Crafty_Shadow @ webworld.bg <vankata.t@gmail.com>
- * @version    SVN: $Id: BasesfGuardAuthActions.class.php 12479 2008-10-31 10:54:40Z fabien $
+ * @version    SVN: $Id$
  */ 
 class BasesfAdminDashActions extends sfActions
 {

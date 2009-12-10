@@ -1,6 +1,6 @@
 <?php
   use_helper('I18N');
-  /** @var Array of menu items */ $items;
+  /** @var Array of menu items */ $items = $sf_data->getRaw('items');
 ?>
 
 <div class="cpanel">

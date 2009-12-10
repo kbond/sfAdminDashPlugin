@@ -1,7 +1,14 @@
 <?php
 /**
-* This class handles configuration for the sfAdminDashPlugin
-*/
+ * sfAdminDashConfig class
+ * 
+ * This class handles configuration for the sfAdminDashPlugin
+ *
+ * @package    plugins
+ * @subpackage sfAdminDash
+ * @author     Ivan Tanev aka Crafty_Shadow @ webworld.bg <vankata.t@gmail.com>
+ * @version    SVN: $Id$
+ */ 
 class sfAdminDashConfig
 {
   /**
@@ -29,6 +36,9 @@ class sfAdminDashConfig
   * The principle is the same as with the old sfCommonFilter and asset insertion in sf 1.0-1.2
   * 
   * @param sfEvent $event
+  * @param string  $content
+  * 
+  * @return string
   */
   public static function listenToResponseFilterContentEvent(sfEvent $event, $content = null)
   {

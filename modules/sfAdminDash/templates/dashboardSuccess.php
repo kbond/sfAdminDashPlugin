@@ -1,15 +1,15 @@
 <?php
   use_helper('I18N');
-  /** @var Array of menu items */ $items;
-  /** @var Array of categories, each containing an array of menu items and settings */ $categories;
+  /** @var Array of menu items */ $items = $sf_data->getRaw('items');
+  /** @var Array of categories, each containing an array of menu items and settings */ $categories = $sf_data->getRaw('categories');
 ?>
-  
+                       
 <div id="sf_admin_container">
-  <h1><?php echo __('Dashboard'); ?></h1>
-  <?php if ($sf_data->getRaw('items')): ?>
+  <h1><?php echo __('Dashboard', null, 'sf_admin_dash'); ?></h1>
+  <?php if (count($items)): ?>
     <?php include_partial('dash_list', array('items' => $items)); ?>
   <?php endif; ?>
-  <?php if ($sf_data->getRaw('categories')): ?>
+  <?php if (count($categories)): ?>
     <?php foreach ($categories as $name => $category): ?>
       <?php if (sfAdminDash::hasPermission($category, $sf_user)): ?>
         <h2><?php echo __(isset($category['name']) ? $category['name'] : $name, null, 'sf_admin_dash'); ?></h2>

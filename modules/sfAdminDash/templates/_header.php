@@ -2,8 +2,8 @@
   use_helper('I18N');
   /** @var Array of menu items */ $items = $sf_data->getRaw('items');
   /** @var Array of categories, each containing an array of menu items and settings */ $categories = $sf_data->getRaw('categories');
-  /** @var string|null Link to the module (for breadcrumbs) */ $module_link;
-  /** @var string|null Link to the action (for breadcrumbs) */ $action_link;
+  /** @var string|null Link to the module (for breadcrumbs) */ $module_link = $sf_data->getRaw('module_link');
+  /** @var string|null Link to the action (for breadcrumbs) */ $action_link = $sf_data->getRaw('action_link');
 ?> 
 
 <?php if ($sf_user->isAuthenticated()): ?> 
@@ -23,10 +23,10 @@
   <?php if (sfAdminDash::getProperty('include_path')): ?>
     <div id='sf_admin_path'>
       <strong><a href='<?php echo url_for('homepage'); ?>'><?php echo sfAdminDash::getProperty('site'); ?></a></strong> 
-      <?php if ($sf_context->getModuleName() != 'sfAdminDash' && $sf_context->getActionName() != 'dashboard' && $module_link != null): ?>
-        / <?php echo link_to($module_link_name, $sf_data->getRaw('module_link')) ?>
+      <?php if ($sf_context->getModuleName() != 'sfAdminDash' && $sf_context->getActionName() != 'dashboard'): ?>
+        / <?php echo null !== $module_link ? link_to($module_link_name, $module_link) : $module_link_name; ?>
         <?php if (null != $action_link): ?>
-          / <?php echo link_to(__(ucfirst($action_link_name), null, 'sf_admin'), $sf_data->getRaw('action_link')) ?>
+          / <?php echo link_to(__(ucfirst($action_link_name), null, 'sf_admin'), $action_link); ?>
         <?php endif ?>
       <?php endif; ?>
     </div>

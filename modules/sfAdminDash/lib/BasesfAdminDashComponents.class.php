@@ -11,28 +11,25 @@ class BasesfAdminDashComponents extends sfComponents
 {
 
   /**
-  * put your comment there...
-  * 
-  */
-  private function set_up_variables()
+  * The main navigation component for the sfAdminDash plugin
+  */  
+  public function executeHeader()
   {
     $this->items      = sfAdminDash::getItems();
     $this->categories = sfAdminDash::getCategories();
        
     if (
-          sfAdminDash::routeExists($this->module_link = $this->getContext()->getModuleName()         , $this->getContext()) ||
-          sfAdminDash::routeExists($this->module_link = $this->getContext()->getModuleName().'/index', $this->getContext()) 
+          !sfAdminDash::routeExists($this->module_link = $this->getContext()->getModuleName()         , $this->getContext()) &&
+          !sfAdminDash::routeExists($this->module_link = $this->getContext()->getModuleName().'/index', $this->getContext())
        )
-    { 
-      $this->module_link_name = sfAdminDash::getModuleName($this->getContext()); 
-    }
-    else
     {
+      // if we cannot sniff the module link, we set it to null and later simply output is as a string in the breadcrumbs
       $this->module_link = null;
-      
     }
 
-    if ($this->getContext()->getActionName() != 'index' && null !== $this->module_link)
+    $this->module_link_name = sfAdminDash::getModuleName($this->getContext()); 
+    
+    if ($this->getContext()->getActionName() != 'index')
     {
       $this->action_link = $this->getContext()->getRouting()->getCurrentInternalUri();
       $this->action_link_name = sfAdminDash::getActionName($this->getContext());
@@ -41,15 +38,6 @@ class BasesfAdminDashComponents extends sfComponents
     {
       $this->action_link = null;
     }
-  }
-  
-  
-  /**
-  * The main navigation component for the sfAdminDash plugin
-  */  
-  public function executeHeader()
-  {
-    $this->set_up_variables();
   } 
 
 }

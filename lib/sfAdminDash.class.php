@@ -108,17 +108,30 @@ class sfAdminDash
 
   
   /**
-  * A proxy method to sfConfig::get(), used bacause it's more readible this way
+  * A proxy method for sfConfig::get(), used bacause it's more readible this way
   * 
-  * @param string $val The name of the config value we want
+  * @param string $name The name of the config value we want
   * @param mixed $default The default value to be returned if the config option is not set
-  * @return string|array
+  * 
+  * @return mixed
   */
-  public static function getProperty($val, $default = null)
+  public static function getProperty($name, $default = null)
   {
-    return sfConfig::get('app_sf_admin_dash_'.$val, $default);
+    return sfConfig::get('app_sf_admin_dash_'.$name, $default);
   }
 
+  
+  /**
+  * A proxy method for sfConfig::set(), userd because it's more convenient
+  * 
+  * @param string $name The name of the config value we want to set
+  * @param mixed $value Guess what ;)
+  */
+  public static function setProperty($name, $value)
+  {
+    sfConfig::set('app_sf_admin_dash_'.$name, $value);
+  }
+  
   
   /**
   * Check if the user the necessary credentials to see this particular item

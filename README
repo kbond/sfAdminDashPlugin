@@ -22,7 +22,7 @@ Publish the plugin's assets:
     plugin:publish-assets
 
 If the modules are admin generator modules, deactivate the default admin 
-generators theme in each module's *generator.yml* by creating a css 
+generator theme in each module's *generator.yml* by creating a css 
 property.  You can either point the css property to a real stylesheet or 
 just use a placeholder.
 
@@ -37,7 +37,7 @@ just use a placeholder.
         plural:                ~
         route_prefix:          article
         with_propel_route:     1
-        css:                   nothing
+        css:                   nothing   #setting the css to a placeholder 
 
         config:
           actions: ~
@@ -56,25 +56,24 @@ Add the plugin's header and footer partials to your applications global
 layout:
 
     <body>
-      <?php include_partial('sfAdminDash/header') ?>
+      <?php include_component('sfAdminDash','header'); ?>
       <?php echo $sf_content ?>
-      <?php include_partial('sfAdminDash/footer') ?>
+      <?php include_partial('sfAdminDash/footer'); ?>
     </body>
 
   At this point your modules should be styled with the joomla-like 
-theme.  There should be a warning saying *Plugin not configured. Please 
+theme.  There should also be a warning saying *Plugin not configured. Please 
 see documentation.*  We will fix that soon.
 
 ###Step 3 (optional) - setup the dashboard
 
-Set your applications *homepage* in your applications *routing.yml* to 
-look like:
+Set your application's *homepage* in your application's *routing.yml* to:
 
     homepage:
       url:   /
       param: { module: sfAdminDash, action: dashboard }
 
-Again you see that warning, we will address that next.
+You should still see that warning, we will address that next.
 
 ###Step 4 - configure global plugin configuration
 
@@ -82,30 +81,40 @@ The plugin's *app.yml* file looks like the following:
 
     all:
       sf_admin_dash:
-        web_dir:              /sfAdminDashPlugin
-        image_dir:            /sfAdminDashPlugin/images/icons/
-        default_image:        config.png
-        resize_mode:          thumbnail
-        logout:               yes
-        site:                 My Site
-        include_jquery:       yes
+        web_dir:                      /sfAdminDashPlugin
+        image_dir:                    /sfAdminDashPlugin/images/icons/
+        default_image:                config.png
+        resize_mode:                  thumbnail
+        site:                         My Site
+        include_path:                 true
+        include_jquery:               true
+        include_jquery_no_conflict:   false
+        jquery_filename:              jquery-1.3.2.min.js
+        logout:                       true
+        login_route:                  @sf_guard_signin
+        logout_route:                 @sf_guard_signout
 
-* web_dir - where the plugin's default css/javascript/images are kept
-* image_dir - where your images for the dash/menu items are kept - 
-images should be 48x48
-* default_image - the default item image if none is specified - this 
-must be in the *image_dir* folder
-* resize_mode - how the image will be resized for the menu items
-    * thumbnail - looks in a directory inside *image_dir* called small 
-for the same image name - these should be 16x16
-    * html - resizes the image within the html *img* tag
-* logout is whether the logout link should be shown
-* site - what you would like the site name to be (shows up in the *path 
-bar* as a link)
-* include_jquery - the plugin's javascript needs jquery - choose no if 
-your application already includes it
+* web_dir - Where the plugin's default css/javascript/images are kept.
+* image_dir - Where your images for the dash/menu items are kept - 
+images should be 48x48.
+* default_image - The default item image if none is specified - this 
+must be in the *image_dir* folder.
+* resize_mode - How the image will be resized for the menu items.
+    * thumbnail - Looks for a directory inside *image_dir* called *small* 
+for an image with the same - it should be 16x16.
+    * html - Resizes the image with the html *img* tag width/height attributes.
+* site - What you would like the site name to be (shows up in the *path 
+bar* as a link).
+* include_path - Whether to generate path "breadcrumbs". Those are meant mainly for the admin generator.
+* include_jquery - The plugin requires jQuery - choose *false* if 
+your application already includes it.
+* include_jquery_no_conflict - In case you are using another JS framework in you website, you should set this to true. It will prevent jQuery from interfering with it.
+* jquery_filename - This specifies the filename for the jQuery inclusion, defaults to the version supplied with sfAdminDashPlugin.
+* logout -  Whether a logout link will be shown.
+* login_route - The route to the login action, defaults to the sfGuardPlugin's.
+* logout_route - The route to the logout action, defaults to the sfGuardPlugin's.
 
-Override these settings as you see fit.
+You can override these settings as you see fit.
 
 ###Step 5 - configure the dashboard/menu items
 
@@ -127,9 +136,9 @@ Article.
 
 This creates 2 items on the dashboard and a *Menu* dropdown.  The url 
 property should be an internal URI.  You can also set credentials and an 
-image.  The *image* property is just the image name - its location is 
-specified in the global settings. Alternatively you can also specify an 
-absolute image url, like so image: /somefolder/someimage.jpg. 
+image.  The *image* property can be just the image name - the plugin will look 
+for it in the folder specified in the global settings. Alternatively you can 
+also specify an absolute path, like so ``image: /somefolder/someimage.jpg``.
 
   The credential property can be used to hide options from users who do 
 not have specific credentials.  This gives the ability for different 
@@ -207,17 +216,20 @@ To make module and action names more userfriendly, you can overwrite them using 
     all:
       sf_admin_dash:
         translator:
-          sfGuardUser:
-            title: Users
-            actions:
-              editUser:  edit
+          sfGuardUser:            # the module we are translating
+            title: Users          # title for that module
+            actions:              # actions array
+              editUser:  edit     # here we specify each action and its translation
 
 ###Step 6 (optional) - setting up login screen
 
 Packaged with this plugin is a partial called *login*.  Currently, it 
-works with sfGuardPlugin.  To prevent the path and menu bar from showing 
-decorate the login with another layout that calls the *header_top* 
-partial rather than *header*.
+works with sfGuardPlugin. Include it like this:
+
+    [php]
+    // in application/modules/sfGuardAuth/templates/signinSuccess.php
+    <?php include_partial('sfAdminDash/login', array('form' => $form)); ?>
+
 
 ###todo
 * use an actual admin generator theme

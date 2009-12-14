@@ -16,6 +16,7 @@
     <?php  endif; ?>
     <?php include_partial('sfAdminDash/menu_list', array('items' => $items, 'items_in_menu' => false)); ?>
   </ul>
+<?php endif; ?>
 <?php if (count($categories)): ?>
   <ul>
     <?php foreach ($categories as $name => $category): ?>

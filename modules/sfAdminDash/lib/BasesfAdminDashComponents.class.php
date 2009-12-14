@@ -18,7 +18,7 @@ class BasesfAdminDashComponents extends sfComponents
     $this->items      = sfAdminDash::getItems();
     $this->categories = sfAdminDash::getCategories();
     $this->called_from_component = true; // BC check
-
+        
     if (sfConfig::get('sf_error_404_module') == $this->getContext()->getModuleName() && sfConfig::get('sf_error_404_action') == $this->getContext()->getActionName())
     {
       sfAdminDash::setProperty('include_path', false); // we don't render the breadcrumbs when we are in a 404 error module/action
@@ -32,7 +32,7 @@ class BasesfAdminDashComponents extends sfComponents
         // if we cannot sniff the module link, we set it to null and later simply output is as a string in the breadcrumbs
         $this->module_link = null;
         // but before we do that, one last check - it's possible that the module name is different from the object name and that's the reason we can't sniff it
-        foreach (sfAdminDash::getAllItems() as $name => $item) if ($name == $module) { $this->module_link = $item['url']; break; }        
+        foreach (sfAdminDash::getAllItems() as $name => $item) if ($name == $this->getContext()->getModuleName()) { $this->module_link = $item['url']; break; }        
       }
 
       $this->module_link_name = sfAdminDash::getModuleName($this->getContext()); 

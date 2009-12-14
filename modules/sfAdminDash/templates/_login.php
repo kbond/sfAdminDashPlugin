@@ -26,7 +26,7 @@
             <?php echo $form['remember']->renderLabel(__('Remember?', array(), 'sf_admin_dash')); ?>
             <?php echo $form['remember']->render(array('class' => 'inputcheck')); ?>
           </div>
-          <div align="left"><input type="submit" name="submit" class="button clr" value="Login" /></div>
+          <div align="left"><input type="submit" name="submit" class="button clr" value="<?php echo __('Login', array(), 'sf_admin_dash'); ?>" /></div>
         </div>
       </form>
     </div>

@@ -31,8 +31,12 @@
         <target>Влез</target>
       </trans-unit>
       <trans-unit>
-        <source></source>
-        <target></target>
+        <source>Logout</source>
+        <target>Излез</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Dashboard</source>
+        <target>Модули</target>
       </trans-unit>
     </body>
   </file>

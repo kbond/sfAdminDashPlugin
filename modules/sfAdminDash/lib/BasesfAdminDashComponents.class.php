@@ -17,8 +17,9 @@ class BasesfAdminDashComponents extends sfComponents
   {
     $this->items      = sfAdminDash::getItems();
     $this->categories = sfAdminDash::getCategories();
+    $this->called_from_component = true; // BC check
 
-    if (sfConfig::get('sf_error_404_module') == $this->getContext()->getModuleName() && sfConfig::get('sf_error_404_action') == $this->getContext()->getActionName())
+    if (sfConfig::get('sf_error_404_module') == $this->getContext()->getModuleName() || sfConfig::get('sf_error_404_action') == $this->getContext()->getActionName())
     {
       sfAdminDash::setProperty('include_path', false); // we don't render the breadcrumbs when we are in a 404 error module/action
     }

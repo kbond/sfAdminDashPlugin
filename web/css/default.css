@@ -281,7 +281,7 @@ font-style: italic;
   padding: 0 0 3px 0;
   float: left;
   text-align: left;
-  width: 9em;
+  width: 11em;
   color: #666;
   font-weight: normal !important;
 }
@@ -306,7 +306,7 @@ font-style: italic;
 
 #sf_admin_container .help
 {
-  padding-left: 9em;
+  padding-left: 11em;
   color: #aaa;
 }
 
@@ -442,7 +442,7 @@ ul.error_list li
   margin-bottom: 2em;
 }
 .login h1 {
-  background:transparent url(../../images/sf_admin/login_error.png) no-repeat scroll left top;
+  background:transparent url(../images/login_error.png) no-repeat scroll left top;
   color:#333333;
   font-size:1.5em;
   height:50px;
@@ -564,3 +564,111 @@ li.item-menu a:hover
 {
   color: #C64934
 }
+
+
+
+
+
+
+
+
+
+
+
+.content input, .content select, .content textarea {
+  margin: 2px 0;
+  padding: 4px;
+  color: #6A6969;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4;
+
+}
+
+input[type=password]{ border: dashed #c24733 1px;}
+
+.content input:hover,.content input:focus, .content select:hover{
+  background-color: #fffccc;
+}
+
+.even td {
+  background-color: #eee;
+}
+
+ul.sf_admin_actions input
+{
+  padding: 3px 20px 3px 5px;
+  color: #333;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-left: 4px solid #999;
+  cursor: hand;
+  cursor: pointer;
+  text-align: center;
+}
+
+.sf_admin_action_create {
+  background: url(../images/icon/disk_multiple.png) no-repeat left 2px !important;
+  height: 50px;
+  width: 60px;
+  text-align: center;
+  padding: 0 3px 10px 30px !important;
+  color: Gray !important;
+}
+
+.sf_admin_action_save
+{
+  background: url(../images/icon/disk.png) no-repeat 4px 4px !important;
+  height: 60px;
+  width: 100px;
+  text-align: center;
+  padding: 4px 30px !important;
+  color: Gray !important;
+}
+
+.sf_admin_action_save_and_add
+{
+  background: url(../images/icon/disk_multiple.png) no-repeat 4px 4px !important;
+  padding: 4px 30px !important;
+  color: Gray !important;
+}
+
+.sf_admin_action_cancel
+{
+  height: 80px;
+  width: 60px;
+  text-align: center;
+  padding: 62px 3px 10px 3px !important;
+  color: Gray !important;
+  border: none;
+  border-right: 4px solid #999 !important;  
+}
+
+.sf_admin_action_new,.sf_admin_default_action{
+  background-color: #f1f1f1;
+  border: solid #ccc 1px;
+  border-right: 4px solid #999 !important;
+  padding: 4px 8px;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.sf_admin_filter a
+{
+  background: #f1f1f1 url(../images/icon/magifier_zoom_out.png) no-repeat 4px 4px;
+  border: solid #ccc 1px;
+  border-right: 4px solid #999 !important;
+  padding: 4px 10px 4px 27px;
+}
+
+.sf_admin_action_reset_filter {
+  background: url(/sf/images/sf_admin/reset.png) no-repeat 3px 2px;
+  border-right: 4px solid #fe9500 !important;
+}
+.sf_admin_default_action
+{
+  background-color: #fc6 !important;
+  font-weight: bold !important;
+}
+

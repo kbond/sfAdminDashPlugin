@@ -16,7 +16,7 @@
         <?php include_partial('dash_list', array('items' => $category['items'])); ?>
       <?php endif; ?>
     <?php endforeach; ?>
-  <?php else: ?>
+  <?php elseif (!count($items)): ?>
     <?php echo __('sfAdminDashPlugin is not configured.  Please see the %documentation_link%.', array('%documentation_link%'=>link_to(__('documentation', null, 'sf_admin_dash'), 'http://www.symfony-project.org/plugins/sfAdminDashPlugin?tab=plugin_readme', array('title' => __('documentation', null, 'sf_admin_dash')))), 'sf_admin_dash'); ?>
   <?php endif; ?>
 </div>

@@ -38,6 +38,12 @@
         <min>1.2.0</min>
         <max>1.4.0</max>
       </package>
+      <package>
+        <name>sfJqueryReloadedPlugin</name>
+        <channel>plugins.symfony-project.org</channel>
+        <min>1.2.4</min>
+        <max>1.4.0</max>
+      </package>
     </required>
   </dependencies>
   <phprelease></phprelease>
@@ -55,6 +61,7 @@
       <date>##CURRENT_DATE##</date>
       <license>MIT</license>
       <notes>
+        * crafty: jQuery is no longer packed with the plugin, instead it depends on the sfJqueryReloadedPlugin
         * krojew: Now breadcrumbs can sniff the module name when it's different from the object name (ie, the route name)
         * crafty: Full I18N throughout the plugin
         * crafty: Added bulgarian translation

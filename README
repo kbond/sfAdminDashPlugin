@@ -87,9 +87,7 @@ The plugin's *app.yml* file looks like the following:
         resize_mode:                  thumbnail
         site:                         My Site
         include_path:                 true
-        include_jquery:               true
         include_jquery_no_conflict:   false
-        jquery_filename:              jquery-1.3.2.min.js
         logout:                       true
         login_route:                  @sf_guard_signin
         logout_route:                 @sf_guard_signout
@@ -106,10 +104,7 @@ for an image with the same - it should be 16x16.
 * site - What you would like the site name to be (shows up in the *path 
 bar* as a link).
 * include_path - Whether to generate path "breadcrumbs". Those are meant mainly for the admin generator.
-* include_jquery - The plugin requires jQuery - choose *false* if 
-your application already includes it.
-* include_jquery_no_conflict - In case you are using another JS framework in you website, you should set this to true. It will prevent jQuery from interfering with it.
-* jquery_filename - This specifies the filename for the jQuery inclusion, defaults to the version supplied with sfAdminDashPlugin.
+* include_jquery_no_conflict - In case you are using another JS framework in you website, you should set this to true. It will prevent jQuery from interfering.
 * logout -  Whether a logout link will be shown.
 * login_route - The route to the login action, defaults to the sfGuardPlugin's.
 * logout_route - The route to the logout action, defaults to the sfGuardPlugin's.

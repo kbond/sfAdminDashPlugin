@@ -110,7 +110,7 @@
   padding-left: 25px;
   list-style: none;
   color: #fff;
-  background: url(../../sfPropelPlugin/images/error.png) no-repeat 4px 4px;
+  background: url(../images/error.png) no-repeat 4px 4px;
 }
 
 #sf_admin_container input, #sf_admin_container textarea
@@ -198,34 +198,34 @@
 #sf_admin_container ul li a
 {
   padding-left: 20px;
-  background: url(../../sfPropelPlugin/images/default.png) no-repeat 0 0;
+  background: url(../images/default.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_new a
 {
-  background: url(../../sfPropelPlugin/images/new.png) no-repeat 0 0;
+  background: url(../images/new.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_delete a
 {
-  background: url(../../sfPropelPlugin/images/delete.png) no-repeat 0 0;
+  background: url(../images/delete.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_list a
 {
-  background: url(../../sfPropelPlugin/images/list.png) no-repeat 0 0;
+  background: url(../images/list.png) no-repeat 0 0;
 }
 
 #sf_admin_container ul li.sf_admin_action_edit a
 {
-  background: url(../../sfPropelPlugin/images/edit.png) no-repeat 0 0;
+  background: url(../images/edit.png) no-repeat 0 0;
 }
 
 #sf_admin_container .notice
 {
   margin: 4px 0;
   padding: 4px 4px 4px 30px;
-  background: url(../../sfPropelPlugin/images/tick.png) no-repeat 10px 4px;
+  background: url(../images/tick.png) no-repeat 10px 4px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #ffc;
@@ -235,7 +235,7 @@
 {
   margin: 4px 0;
   padding: 4px 4px 4px 30px;
-  background: url(../../sfPropelPlugin/images/error.png) no-repeat 10px 4px;
+  background: url(../images/error.png) no-repeat 10px 4px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #f33;
@@ -258,7 +258,7 @@ margin: 0;
 color: #111;
 background: url(../images/sf_admin/background.jpg) repeat-x;
 font-size: 14px;
-font-style: italic;  
+font-style: italic;
 }*/
 
 #sf_admin_container fieldset
@@ -278,7 +278,7 @@ font-style: italic;
 #sf_admin_container label
 {
   display: block;
-  padding: 0 1em 3px 0;
+  padding: 0 0 3px 0;
   float: left;
   text-align: left;
   width: 11em;
@@ -306,7 +306,7 @@ font-style: italic;
 
 #sf_admin_container .help
 {
-  padding-left: 9em;
+  padding-left: 11em;
   color: #aaa;
 }
 
@@ -442,7 +442,7 @@ ul.error_list li
   margin-bottom: 2em;
 }
 .login h1 {
-  background:transparent url(../../images/sf_admin/login_error.png) no-repeat scroll left top;
+  background:transparent url(../images/login_error.png) no-repeat scroll left top;
   color:#333333;
   font-size:1.5em;
   height:50px;
@@ -494,7 +494,7 @@ ul.error_list li
 
 /* Drop Down Menu */
 #sf_admin_menu ul
-{  
+{
   padding: 0;
   margin: 0;
 }
@@ -519,7 +519,7 @@ li.nodehover
 }
 
 li.node ul
-{ 
+{
   position: absolute;
   top: 30px;
   left: 5px;
@@ -532,9 +532,13 @@ li.node ul li
 {
   padding: 5px;
 }
+li.node img
+{
+  vertical-align: middle;
+}
 
 li.node a, li.node a:visited
-{ 
+{
   text-decoration: none;
   font-weight: bold;
   color: #222;
@@ -554,7 +558,7 @@ li.item-menu
 }
 
 li.item-menu a, li.item-menu a:visited
-{ 
+{
   text-decoration: none;
   font-weight: bold;
   color: #222;
@@ -563,4 +567,24 @@ li.item-menu a, li.item-menu a:visited
 li.item-menu a:hover
 {
   color: #C64934
+}
+
+.content input, .content select, .content textarea,
+.sf_admin_filter tbody input, .sf_admin_filter tbody select {
+  margin: 2px 0;
+  padding: 4px;
+  color: #6A6969;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d4d4d4 #ebebeb #ebebeb #d4d4d4;
+
+}
+
+.content input:hover,.content input:focus, .content select:hover,
+.sf_admin_filter tbody input:hover, .sf_admin_filter tbody select:hover {
+  background-color: #fffccc;
+}
+
+.even td {
+  background-color: #eee;
 }

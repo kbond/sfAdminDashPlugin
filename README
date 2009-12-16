@@ -6,6 +6,10 @@ I found for all my symfony projects which had backends I had to create a
 menu to access all the various modules.  This plugin automates the 
 process by using a configuration file.
 
+###Requirements:
+
+[sfJqueryReloadedPlugin](http://www.symfony-project.org/plugins/sfJqueryReloadedPlugin)
+
 ##How to use
 
 ###Step 1 - install plugin
@@ -228,7 +232,6 @@ works with sfGuardPlugin. Include it like this:
 
 ###todo
 * use an actual admin generator theme
-* make a more dynamic login screen (configurable in the global config)
 * clean up css
 
 Feel free to email me with suggestions/bugs.

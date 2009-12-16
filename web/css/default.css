@@ -532,6 +532,10 @@ li.node ul li
 {
   padding: 5px;
 }
+li.node img
+{
+  vertical-align: middle;
+}
 
 li.node a, li.node a:visited
 {

@@ -20,6 +20,14 @@
         <source>Remember?</source>
         <target>Dauerhaft eingelogt bleiben?</target>
       </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Passwort</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login</source>
+        <target>Anmeldung</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

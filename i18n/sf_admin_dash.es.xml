@@ -4,21 +4,33 @@
   <file source-language="en" target-language="es" datatype="plaintext" original="messages" product-name="messages">
     <header/>
     <body>
-      <trans-unit id="1">
+      <trans-unit>
         <source>Welcome to</source>
         <target>Bienvenido a</target>
       </trans-unit>
-      <trans-unit id="2">
+      <trans-unit>
         <source>Use a valid username and password to gain access to the administration console.</source>
         <target>Utilice un nombre de usuario y contraseña válidos para acceder al panel de administración.</target>
       </trans-unit>
-      <trans-unit id="3">
+      <trans-unit>
         <source>Username</source>
         <target>Usuario</target>
       </trans-unit>
-      <trans-unit id="4">
+      <trans-unit>
         <source>Remember?</source>
         <target>Recordar?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Contraseña</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login</source>
+        <target>Inicio de sesión</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Logout</source>
+        <target>Cerrar sesión</target>
       </trans-unit>
     </body>
   </file>

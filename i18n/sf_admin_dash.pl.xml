@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+  <file source-language="en" target-language="pl"
+  datatype="plaintext" original="messages" product-name="messages">
+    <header />
+    <body>
+      <trans-unit>
+        <source>Welcome to</source>
+        <target>Witaj w</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Use a valid username and password to gain access to
+        the administration console.</source>
+        <target>Wprowadź poprawną nazwę użytkownika i hasło, aby
+        wejść do panelu administracyjnego.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username</source>
+        <target>Użytkownik</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Remember?</source>
+        <target>Zapamiętać?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Hasło</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login</source>
+        <target>Logowanie</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Logout</source>
+        <target>Wyloguj</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Dashboard</source>
+        <target>Panel administracyjny</target>
+      </trans-unit>
+      <trans-unit>
+        <source>
+          <![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]>
+</source>
+        <target>
+          <![CDATA[Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone]]>
+</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -9,6 +9,10 @@ process by using a configuration file.
 ###Requirements:
 
 [sfJqueryReloadedPlugin](http://www.symfony-project.org/plugins/sfJqueryReloadedPlugin)
+This plugin depends on sfJqueryReloadedPlugin to create the dropdown
+menu and manipulate the view. If this plugin is not yest installed,
+the symfony plugin dependency system will install it when you install
+sfAdminDashPlugin.
 
 ##How to use
 

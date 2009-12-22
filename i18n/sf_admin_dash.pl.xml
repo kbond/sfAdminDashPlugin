@@ -9,10 +9,8 @@
         <target>Witaj w</target>
       </trans-unit>
       <trans-unit>
-        <source>Use a valid username and password to gain access to
-        the administration console.</source>
-        <target>Wprowadź poprawną nazwę użytkownika i hasło, aby
-        wejść do panelu administracyjnego.</target>
+        <source>Use a valid username and password to gain access to the administration console.</source>
+        <target>Wprowadź poprawną nazwę użytkownika i hasło, aby wejść do panelu administracyjnego.</target>
       </trans-unit>
       <trans-unit>
         <source>Username</source>
@@ -39,12 +37,8 @@
         <target>Panel administracyjny</target>
       </trans-unit>
       <trans-unit>
-        <source>
-          <![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]>
-</source>
-        <target>
-          <![CDATA[Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone]]>
-</target>
+        <source>Copyright &copy; %current_year% %site_name%. All rights reserved</source>
+        <target>Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone</target>
       </trans-unit>
     </body>
   </file>

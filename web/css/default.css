@@ -121,12 +121,14 @@
 #sf_admin_container .radio_list, #sf_admin_container .checkbox_list
 {
   margin: 0;
+  padding: 5px;
 }
 
 #sf_admin_container .radio_list li, #sf_admin_container .checkbox_list li
 {
   list-style: none;
   display: inline;
+  margin-right: 10px;
 }
 
 #sf_admin_container .double_list_select, #sf_admin_container .double_list_select-selected

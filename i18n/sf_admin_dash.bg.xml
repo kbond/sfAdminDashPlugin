@@ -38,6 +38,18 @@
         <source>Dashboard</source>
         <target>Модули</target>
       </trans-unit>
+      <trans-unit>
+        <source>sfAdminDashPlugin is not configured.  Please see the %documentation_link%.</source>
+        <target>sfAdminDashPlugin не е конфигуриран.  Моля, обърнете се към %documentation_link%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>documentation</source>
+        <target>документацията</target>
+      </trans-unit>
+      <trans-unit>
+        <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
+        <target><![CDATA[Copyright &copy; %current_year% %site_name%. Всички права запазени]]></target>
+      </trans-unit>      
     </body>
   </file>
 </xliff>

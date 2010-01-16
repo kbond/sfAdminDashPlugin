@@ -10,7 +10,7 @@ jQuery(function() {
     jQuery('.sf_admin_list').css('padding-right', filter_width);
 
     //add filter header
-    jQuery('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
+    jQuery('#sf_admin_bar div.sf_admin_filter table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
   }
 });
 

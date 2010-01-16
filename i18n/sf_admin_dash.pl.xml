@@ -37,8 +37,8 @@
         <target>Panel administracyjny</target>
       </trans-unit>
       <trans-unit>
-        <source>Copyright &copy; %current_year% %site_name%. All rights reserved</source>
-        <target>Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone</target>
+        <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
+        <target><![CDATA[Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone]]></target>
       </trans-unit>
     </body>
   </file>

@@ -15,8 +15,9 @@ class BasesfAdminDashComponents extends sfComponents
   */  
   public function executeHeader()
   {
-    $this->items      = sfAdminDash::getItems();
-    $this->categories = sfAdminDash::getCategories();
+    $this->items        = sfAdminDash::getItems();
+    $this->categories   = sfAdminDash::getCategories();
+    $this->user_actions = sfAdminDash::getUserActions();
     $this->called_from_component = true; // BC check
         
     if (sfConfig::get('sf_error_404_module') == $this->getContext()->getModuleName() && sfConfig::get('sf_error_404_action') == $this->getContext()->getActionName())

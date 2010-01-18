@@ -31,6 +31,9 @@ else:
     <?php if (sfAdminDash::getProperty('logout') && $sf_user->isAuthenticated()): ?>
       <div id="logout"><?php echo link_to(__('Logout', null, 'sf_admin_dash'), sfAdminDash::getProperty('logout_route', '@sf_guard_signout ')); ?> <?php echo $sf_user; ?></div>
     <?php endif; ?>
+    <?php if ($user_actions): ?>
+      <?php include_partial('sfAdminDash/user_actions', array('user_actions' => $user_actions)) ?>
+    <?php endif; ?>
     <div class="clear"></div>
   </div>
 

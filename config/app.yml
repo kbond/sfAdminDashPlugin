@@ -3,6 +3,7 @@ all:
     web_dir:                      /sfAdminDashPlugin
     image_dir:                    /sfAdminDashPlugin/images/icons/
     default_image:                config.png
+    dashboard_url:                 homepage
     resize_mode:                  thumbnail
     logout:                       true
     site:                         My Site

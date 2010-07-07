@@ -37,7 +37,7 @@ else:
 
   <?php if (sfAdminDash::getProperty('include_path')): ?>
     <div id='sf_admin_path'>
-      <strong><a href='<?php echo url_for('homepage'); ?>'><?php echo sfAdminDash::getProperty('site'); ?></a></strong> 
+      <strong><a href='<?php echo url_for(sfAdminDash::getProperty('dashboard_url')); ?>'><?php echo sfAdminDash::getProperty('site'); ?></a></strong>
       <?php if ($sf_context->getModuleName() != 'sfAdminDash' && $sf_context->getActionName() != 'dashboard'): ?>
         / <?php echo null !== $module_link ? link_to($module_link_name, $module_link) : $module_link_name; ?>
         <?php if (null != $action_link): ?>

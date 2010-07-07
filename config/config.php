@@ -5,7 +5,7 @@
 
 
 
-if (in_array('sfAdminDash', sfConfig::get('sf_enabled_modules', array())))
+if (in_array('sfAdminDash', sfConfig::get('sf_enabled_modules', array())) && sfAdminDash::getProperty('include_assets'))
 {
   // the plugin module is in the enabled modules, add assets:
   $this->dispatcher->connect('context.load_factories', array('sfAdminDashConfig', 'listenToContextLoadFactoriesEvent'));

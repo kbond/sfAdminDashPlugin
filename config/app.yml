@@ -8,6 +8,7 @@ all:
     site:                         My Site
     include_path:                 true
     include_jquery:               true
+    include_assets:               true
     include_jquery_no_conflict:   false
     login_route:                  @sf_guard_signin
     logout_route:                 @sf_guard_signout

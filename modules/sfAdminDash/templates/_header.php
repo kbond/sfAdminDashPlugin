@@ -22,7 +22,7 @@ else:
 
 <?php if ($sf_user->isAuthenticated()): ?> 
   <div id='sf_admin_theme_header'>
-    <a href='<?php echo url_for('homepage') ?>'><?php echo image_tag(sfAdminDash::getProperty('web_dir').'/images/header_text', array('alt' => 'Home')); ?></a>
+    <a href='<?php echo url_for(sfAdminDash::getProperty('dashboard_url')); ?>'><?php echo image_tag(sfAdminDash::getProperty('web_dir').'/images/header_text', array('alt' => 'Home')); ?></a>
   </div>
 
   <div id='sf_admin_menu'>    

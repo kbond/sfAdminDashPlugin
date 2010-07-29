@@ -3,7 +3,11 @@
   /** @var Array of menu items */ $items = $sf_data->getRaw('items');
   /** @var Array of categories, each containing an array of menu items and settings */ $categories = $sf_data->getRaw('categories');
 ?>
-                       
+
+<div id="sf_admin_dashboard_slot">
+  <?php include_component_slot('sf_admin_dashboard_slot') ?>
+</div>
+
 <div id="sf_admin_container">
   <h1><?php echo __('Dashboard', null, 'sf_admin_dash'); ?></h1>
   <?php if (count($items)): ?>

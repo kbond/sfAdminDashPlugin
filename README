@@ -45,7 +45,7 @@ just use a placeholder.
         plural:                ~
         route_prefix:          article
         with_propel_route:     1
-        css:                   nothing   #setting the css to a placeholder 
+        css:                   false   #disabling the default css
 
         config:
           actions: ~
@@ -233,17 +233,6 @@ works with sfGuardPlugin. Include it like this:
     // in application/modules/sfGuardAuth/templates/signinSuccess.php
     <?php include_partial('sfAdminDash/login', array('form' => $form)); ?>
 
-###Step 7 (optional) - setting up User actions
-
-User actions can be optionally set in *app.yml*:
-
-    all:
-      sf_admin_dash:
-        user_actions:
-          "New Ticket":       { url: cms_ticket_new }
-          "My Tickets":       { url: cms_ticket }
-
-These show up as a list of links beside the logout button.  Override the _user_actions partial if you wish to add some kind of logic to the action display.
 
 ###todo
 * use an actual admin generator theme

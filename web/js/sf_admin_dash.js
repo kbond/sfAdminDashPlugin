@@ -1,39 +1,28 @@
-//sfAdminThemePlugin javascript
-
-var image_dir = '../images/sf_admin/';
-
-//adjust table to fit filters if they exist
-jQuery(function() {
-  if (jQuery('#sf_admin_bar').size()) {
-    var filter_width = jQuery('#sf_admin_bar').width() + 25;
-
-    jQuery('.sf_admin_list').css('padding-right', filter_width);
-
-    //add filter header
-    jQuery('#sf_admin_bar div.sf_admin_filter table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
-  }
-});
-
-//if new button exists, edit it
-/*jQuery(function() {
-  if (jQuery('.sf_admin_action_new').size()) {
-    jQuery('.sf_admin_action_new a').prepend("<img src='" + image_dir + "new_f2.png" + "' alt='New' /><br />");
-  }
-});*/
-
-//menu
-jQuery(function(){
-		jQuery('li.node').hover(
-			function() {
-        jQuery('ul', this).css('display', 'block');
-        jQuery(this).addClass('nodehover');
+(function($) {
+  
+  $(document).ready(function() {
+    
+    if ($('#sf_admin_bar').size()) {
+      $('.sf_admin_list').css('margin-right', $('#sf_admin_bar').width() + 25);
+      
+      //add filter header
+      $('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
+    }
+    
+    $('#sf_admin_menu li.node').hover(
+      function() {
+        $('ul', this).css('display', 'block');
+        $(this).addClass('nodehover');
       },
-			function() {
-        jQuery('ul', this).css('display', 'none');
-        jQuery(this).removeClass('nodehover');
-      });
+      function() {
+        $('ul', this).css('display', 'none');
+        $(this).removeClass('nodehover');
+      }
+    );
 
-    jQuery('li.node a[href=#]').click(function() {
-      return false;
+    $('li.node a[href=#]').live('click', function(e) {
+      e.preventDefault();
     });
-	});
+    
+  });
+})(jQuery)

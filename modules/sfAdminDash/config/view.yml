@@ -1,0 +1,3 @@
+default:
+  components:
+    sf_admin_dashboard_slot: false

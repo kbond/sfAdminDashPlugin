@@ -49,7 +49,11 @@
       <trans-unit>
         <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
         <target><![CDATA[Copyright &copy; %current_year% %site_name%. Всички права запазени]]></target>
-      </trans-unit>      
+      </trans-unit>
+      <trans-unit>
+        <source>Filters</source>
+        <target>Филтри</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

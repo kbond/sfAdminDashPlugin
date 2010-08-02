@@ -1,4 +1,4 @@
-# sfAdminDashPlugin
+#sfAdminDashPlugin
 
 ##Overview
 
@@ -10,7 +10,7 @@ process by using a configuration file.
 
 [sfJqueryReloadedPlugin](http://www.symfony-project.org/plugins/sfJqueryReloadedPlugin)
 This plugin depends on sfJqueryReloadedPlugin to create the dropdown
-menu and manipulate the view. If this plugin is not yest installed,
+menu and manipulate the view. If this plugin is not yet installed,
 the symfony plugin dependency system will install it when you install
 sfAdminDashPlugin.
 
@@ -18,22 +18,39 @@ sfAdminDashPlugin.
 
 ###Step 1 - install plugin
 
-Install the plugin, clear the cache and activate the sfAdminDash module 
-in the application's *settings.yml*.
+Install the plugin, publish the assets and clear the cache.
 
-    enabled_modules:        [default, sfAdminDash]
+    $ symfony plugin:install sfAdminDashPlugin
+    $ symfony plugin:publish-assets
+    $ symfony cc
+
+Then activate the sfAdminDash module in the application's *settings.yml*
+
+    [php]
+    # in application/config/settings.yml
+    enabled_modules:          [default, sfAdminDash]
 
 ###Step 2 - setup theme
 
-Publish the plugin's assets:
+Add the plugin's header and footer to your application's global 
+layout:
 
-    plugin:publish-assets
+    [php]
+    # in application/templates/layout.php
+    <body>
+      <?php include_component('sfAdminDash', 'header'); ?>
+      <?php echo $sf_content ?>
+      <?php include_partial('sfAdminDash/footer'); ?>
+    </body>
 
-If the modules are admin generator modules, deactivate the default admin 
-generator theme in each module's *generator.yml* by creating a css 
+
+If you have admin generator modules, deactivate the default admin 
+generator theme in each module's *generator.yml* by setting the css 
 property.  You can either point the css property to a real stylesheet or 
-just use a placeholder.
+just disable it.
 
+    [php]
+    # in application/modules/admin_generated_module/config/generator.yml
     generator:
       class: sfPropelGenerator
       param:
@@ -44,8 +61,8 @@ just use a placeholder.
         singular:              ~
         plural:                ~
         route_prefix:          article
-        with_propel_route:     1
-        css:                   false   #disabling the default css
+        with_propel_route:     true
+        css:                   false   # disable the default css
 
         config:
           actions: ~
@@ -60,44 +77,41 @@ In the future I would like to create an actual theme by overriding the
 default files but I found an issue when trying to do this (see [my 
 ticket](http://trac.symfony-project.org/ticket/5697))
 
-Add the plugin's header and footer partials to your applications global 
-layout:
-
-    <body>
-      <?php include_component('sfAdminDash','header'); ?>
-      <?php echo $sf_content ?>
-      <?php include_partial('sfAdminDash/footer'); ?>
-    </body>
 
   At this point your modules should be styled with the joomla-like 
-theme.  There should also be a warning saying *Plugin not configured. Please 
+theme.  There should also be a warning saying *sfAdminDashPlugin not configured. Please 
 see documentation.*  We will fix that soon.
 
 ###Step 3 (optional) - setup the dashboard
 
 Set your application's *homepage* in your application's *routing.yml* to:
 
+    [php]
+    # in application/config/routing.yml
     homepage:
       url:   /
       param: { module: sfAdminDash, action: dashboard }
 
-You should still see that warning, we will address that next.
+###Step 4 - set global plugin configuration
 
-###Step 4 - configure global plugin configuration
+The plugin's *app.yml* file looks like this:
 
-The plugin's *app.yml* file looks like the following:
-
+    [php]
+    # in plugins/sfAdminDashPlugin/config/app.yml
     all:
       sf_admin_dash:
         web_dir:                      /sfAdminDashPlugin
         image_dir:                    /sfAdminDashPlugin/images/icons/
         default_image:                config.png
+        dashboard_url:                @homepage
         resize_mode:                  thumbnail
-        site:                         My Site
+        site:                         My Site Name
         include_path:                 true
+        include_assets:               true
+        include_jquery:               true
         include_jquery_no_conflict:   false
-        logout:                       true
         login_route:                  @sf_guard_signin
+        logout:                       true
         logout_route:                 @sf_guard_signout
 
 * web_dir - Where the plugin's default css/javascript/images are kept.
@@ -107,14 +121,16 @@ images should be 48x48.
 must be in the *image_dir* folder.
 * resize_mode - How the image will be resized for the menu items.
     * thumbnail - Looks for a directory inside *image_dir* called *small* 
-for an image with the same - it should be 16x16.
+for an image with the same name - it should be 16x16px.
     * html - Resizes the image with the html *img* tag width/height attributes.
 * site - What you would like the site name to be (shows up in the *path 
-bar* as a link).
+bar* as a link and on the login page).
 * include_path - Whether to generate path "breadcrumbs". Those are meant mainly for the admin generator.
+* include_assets - Whether the plugin's assets (css and js) should be included. Leave this to true unless you intend to reskin the plugin.
+* include_jquery - Whether to include jquery. Depends on sfJqueryReloadedPlugin.
 * include_jquery_no_conflict - In case you are using another JS framework in you website, you should set this to true. It will prevent jQuery from interfering.
-* logout -  Whether a logout link will be shown.
 * login_route - The route to the login action, defaults to the sfGuardPlugin's.
+* logout -  Whether a logout link will be shown.
 * logout_route - The route to the logout action, defaults to the sfGuardPlugin's.
 
 You can override these settings as you see fit.
@@ -124,18 +140,19 @@ You can override these settings as you see fit.
 Items are controlled by your application's *app.yml* file.  The best way 
 to show how to use this is with an example:
 
-  I have created backend application and 2 admin modules: Comment and 
-Article.
+  I have created a backend application with 2 admin modules: *Comment* and *Article*.
 
-  To create dash/menu items for these modules I use this format:
+  To create dashboard/menu items for these modules I will use this configuration:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         items:
           Articles:
-            url:    article
+            url:              article
           Comments:
-            url:    comment
+            url:              comment
 
 This creates 2 items on the dashboard and a *Menu* dropdown.  The url 
 property should be an internal URI.  You can also set credentials and an 
@@ -152,28 +169,34 @@ setting credentials in *security.yml*.
 need to setup the same credentials in *security.yml* to prevent the user 
 from accessing the module.**
 
-Here is an sample configuration:
+Here is an example configuration:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         items:
           Articles:
-            url:          article
-            image:        book.png
-            credentials:  [[admin, publisher]]
+            url:              article
+            image:            book.png
+            credentials:      [[admin, publisher]]
           Comments:
-            url:          comment
-            image:        textcloud.png
-            credentials:  [admin]
+            url:              comment
+            image:            textcloud.png
+            credentials:      [admin]
 
 The above example shows the *Articles* item only to users with the 
 **admin** or **publisher** credential and the *Comments* item only to 
 users with the **admin** credential.  The images are self explanatory.  
+
 Packaged with this plugin is a small library of images that can be used.
+
 
 You can group items into categories as well by embedding the items into 
 a *category name* property under *categories* property:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         categories:
@@ -196,11 +219,13 @@ their own dropdown menu.
 
   You can set credentials to entire categories like so:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         categories:
           Blog:
-            credentials:      [admin]
+            credentials:      [ admin ]
             items:
               Articles:
                 url:          article
@@ -213,40 +238,49 @@ This hides the entire category from the user if they don't have the
 **admin** credential.
 
 By default the plugin header prints a cookie trail in the format "module / action".
-To make module and action names more userfriendly, you can overwrite them using the 
+To make module and action names more user-friendly you can overwrite them using the 
 "translator" property like so:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         translator:
-          sfGuardUser:            # the module we are translating
-            title: Users          # title for that module
-            actions:              # actions array
-              editUser:  edit     # here we specify each action and its translation
+          sfGuardUser:                # the module we are translating
+            title:            Users   # title for that module
+            actions:                  # actions array
+              editUser:       edit    # here we specify each action and its translation
 
 ###Step 6 (optional) - setting up login screen
 
-Packaged with this plugin is a partial called *login*.  Currently, it 
-works with sfGuardPlugin. Include it like this:
+Packaged with this plugin is a partial called *login*.  Currently, it only works 
+with sfGuardPlugin. Include it like this:
 
     [php]
-    // in application/modules/sfGuardAuth/templates/signinSuccess.php
+    # in application/modules/sfGuardAuth/templates/signinSuccess.php
     <?php include_partial('sfAdminDash/login', array('form' => $form)); ?>
 
 ###Step 7 (optional) - setting up User actions
 
 User actions can be optionally set in *app.yml*:
 
+    [php]
+    # in application/config/app.yml
     all:
       sf_admin_dash:
         user_actions:
-          "New Ticket":       { url: cms_ticket_new }
-          "My Tickets":       { url: cms_ticket }
+          "New Ticket":       
+            url:              @cms_ticket_new 
+          "My Tickets":       
+            url:              @cms_ticket
+          "Clear cache":
+            url:              @clear_app_cache  
+            credentials:      [ admin ]    
 
-These show up as a list of links beside the logout button.  Override the _user_actions partial if you wish to add some kind of logic to the action display.
+These show up as a list of links next to the logout button.  Override the _user_actions partial if you wish to add some kind of logic to the action display.
 
 ###todo
 * use an actual admin generator theme
 * clean up css
 
-Feel free to email me with suggestions/bugs.
+Feel free to email suggestions/bugs.

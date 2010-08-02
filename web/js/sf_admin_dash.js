@@ -6,7 +6,7 @@
       $('.sf_admin_list').css('margin-right', $('#sf_admin_bar').width() + 25);
       
       //add filter header
-      $('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>Filters</th></tr></thead>");
+      $('#sf_admin_bar table tbody').before("<thead><tr><th colspan='2'>" + $('#sf_admin_dash_hidden_filters_translation').html() + "</th></tr></thead>");
     }
     
     $('#sf_admin_menu li.node').hover(

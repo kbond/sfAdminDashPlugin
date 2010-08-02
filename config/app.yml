@@ -3,14 +3,14 @@ all:
     web_dir:                      /sfAdminDashPlugin
     image_dir:                    /sfAdminDashPlugin/images/icons/
     default_image:                config.png
-    dashboard_url:                 homepage
+    dashboard_url:                @homepage
     resize_mode:                  thumbnail
-    logout:                       true
-    site:                         My Site
+    site:                         My Site Name
     include_path:                 true
-    include_jquery:               true
     include_assets:               true
+    include_jquery:               true
     include_jquery_no_conflict:   false
     login_route:                  @sf_guard_signin
+    logout:                       true
     logout_route:                 @sf_guard_signout
     

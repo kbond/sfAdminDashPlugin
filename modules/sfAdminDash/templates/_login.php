@@ -1,5 +1,6 @@
 <?php 
-  use_helper('I18N'); 
+  use_helper('I18N');
+  use_stylesheet('/sfAdminDashPlugin/css/default.css'); 
 ?>
 
 <div id="ctr" align="center">

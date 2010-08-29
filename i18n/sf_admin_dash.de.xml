@@ -28,6 +28,30 @@
         <source>Login</source>
         <target>Anmeldung</target>
       </trans-unit>
+      <trans-unit>
+        <source>Logout</source>
+        <target>Logout</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Dashboard</source>
+        <target>Armaturenbrett</target>
+      </trans-unit>
+      <trans-unit>
+        <source>sfAdminDashPlugin is not configured.  Please see the %documentation_link%.</source>
+        <target>sfAdminDashPlugin ist nicht konfiguriert. Bitte sehen Sie der %documentation_link%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>documentation</source>
+        <target>Dokumentation</target>
+      </trans-unit>
+      <trans-unit>
+        <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
+        <target><![CDATA[Copyright &copy; %current_year% %site_name%. Alle Rechte vorbehalten]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>Filters</source>
+        <target>Filter</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -37,8 +37,20 @@
         <target>Panel administracyjny</target>
       </trans-unit>
       <trans-unit>
+        <source>sfAdminDashPlugin is not configured.  Please see the %documentation_link%.</source>
+        <target>sfAdminDashPlugin nie jest skonfigurowany. Proszę zapoznać się z %documentation_link%.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>documentation</source>
+        <target>dokumentacją</target>
+      </trans-unit>
+      <trans-unit>
         <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
         <target><![CDATA[Copyright &copy; %current_year% %site_name%. Wszelkie prawa zastrzeżone]]></target>
+      </trans-unit>
+      <trans-unit>
+        <source>Filters</source>
+        <target>Filtry</target>
       </trans-unit>
     </body>
   </file>

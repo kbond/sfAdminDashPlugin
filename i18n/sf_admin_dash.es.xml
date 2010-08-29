@@ -48,6 +48,10 @@
         <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
         <target><![CDATA[Copyright &copy; %current_year% %site_name%. Todos los derechos reservados]]></target>
       </trans-unit>
+      <trans-unit>
+        <source>Filters</source>
+        <target>Filtros</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

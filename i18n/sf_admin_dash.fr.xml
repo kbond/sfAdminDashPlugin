@@ -18,7 +18,7 @@
       </trans-unit>
       <trans-unit>
         <source>Remember?</source>
-        <target>Garder ma session ouverte?</target>
+        <target>Garder ma session ouverte ?</target>
       </trans-unit>
       <trans-unit>
         <source>Password</source>
@@ -34,11 +34,11 @@
       </trans-unit>
       <trans-unit>
         <source>Dashboard</source>
-        <target>Tablero</target>
+        <target>Tableau de bord</target>
       </trans-unit>
       <trans-unit>
         <source>sfAdminDashPlugin is not configured.  Please see the %documentation_link%.</source>
-        <target>sfAdminDashPlugin no está configurado. Por favor, mira la %documentation_link%.</target>
+        <target>sfAdminDashPlugin n'est pas configuré. Consultez le %documentation_link%.</target>
       </trans-unit>
       <trans-unit>
         <source>documentation</source>
@@ -46,11 +46,11 @@
       </trans-unit>
       <trans-unit>
         <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
-        <target><![CDATA[Copyright &copy; %current_year% %site_name%. Todos los derechos reservados]]></target>
+        <target><![CDATA[Copyright &copy; %current_year% %site_name%. Tous droits réservés]]></target>
       </trans-unit>
       <trans-unit>
         <source>Filters</source>
-        <target>Filtros</target>
+        <target>Filtres</target>
       </trans-unit>
     </body>
   </file>

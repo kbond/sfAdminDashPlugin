@@ -26,7 +26,6 @@ Install the plugin, publish the assets and clear the cache.
 
 Then activate the sfAdminDash module in the application's *settings.yml*
 
-    [php]
     # in application/config/settings.yml
     enabled_modules:          [default, sfAdminDash]
 
@@ -35,8 +34,7 @@ Then activate the sfAdminDash module in the application's *settings.yml*
 Add the plugin's header and footer to your application's global 
 layout:
 
-    [php]
-    # in application/templates/layout.php
+    <!-- in application/templates/layout.php -->
     <body>
       <?php include_component('sfAdminDash', 'header'); ?>
       <?php echo $sf_content ?>
@@ -49,7 +47,6 @@ generator theme in each module's *generator.yml* by setting the css
 property.  You can either point the css property to a real stylesheet or 
 just disable it.
 
-    [php]
     # in application/modules/admin_generated_module/config/generator.yml
     generator:
       class: sfPropelGenerator
@@ -86,7 +83,6 @@ see documentation.*  We will fix that soon.
 
 Set your application's *homepage* in your application's *routing.yml* to:
 
-    [php]
     # in application/config/routing.yml
     homepage:
       url:   /
@@ -96,7 +92,6 @@ Set your application's *homepage* in your application's *routing.yml* to:
 
 The plugin's *app.yml* file looks like this:
 
-    [php]
     # in plugins/sfAdminDashPlugin/config/app.yml
     all:
       sf_admin_dash:
@@ -144,7 +139,6 @@ to show how to use this is with an example:
 
   To create dashboard/menu items for these modules I will use this configuration:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:
@@ -171,7 +165,6 @@ from accessing the module.**
 
 Here is an example configuration:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:
@@ -195,7 +188,6 @@ Packaged with this plugin is a small library of images that can be used.
 You can group items into categories as well by embedding the items into 
 a *category name* property under *categories* property:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:
@@ -219,7 +211,6 @@ their own dropdown menu.
 
   You can set credentials to entire categories like so:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:
@@ -241,7 +232,6 @@ By default the plugin header prints a cookie trail in the format "module / actio
 To make module and action names more user-friendly you can overwrite them using the 
 "translator" property like so:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:
@@ -256,15 +246,13 @@ To make module and action names more user-friendly you can overwrite them using 
 Packaged with this plugin is a partial called *login*.  Currently, it only works 
 with sfGuardPlugin. Include it like this:
 
-    [php]
-    # in application/modules/sfGuardAuth/templates/signinSuccess.php
+    // in application/modules/sfGuardAuth/templates/signinSuccess.php
     <?php include_partial('sfAdminDash/login', array('form' => $form)); ?>
 
 ###Step 7 (optional) - setting up User actions
 
 User actions can be optionally set in *app.yml*:
 
-    [php]
     # in application/config/app.yml
     all:
       sf_admin_dash:

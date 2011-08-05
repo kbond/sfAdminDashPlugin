@@ -22,7 +22,7 @@
     <?php foreach ($categories as $name => $category): ?>
     <?php   if (sfAdminDash::hasPermission($category, $sf_user)): ?>
     <?php     if (sfAdminDash::hasItemsMenu($category['items'])): ?>
-    <li class="node"><a href="#"><?php echo isset($category['name']) ? $category['name'] : $name ?></a>
+    <li class="node"><a href="#"><?php echo __(isset($category['name']) ? $category['name'] : $name) ?></a>
       <ul>
         <?php include_partial('sfAdminDash/menu_list', array('items' => $category['items'], 'items_in_menu' => true)) ?>
       </ul>

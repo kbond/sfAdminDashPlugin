@@ -66,7 +66,7 @@ class sfAdminDash
   public static function getItems()
   {
     $items = self::getProperty('items', array());
-    array_walk($items, array(self, 'initItem'));
+    array_walk($items, array(__CLASS__, 'initItem'));
 
     return $items;
   }
@@ -110,7 +110,7 @@ class sfAdminDash
     {
       if (isset($category_data['items']))
       {
-        array_walk($categories[$category_name]['items'], array(self, 'initItem'));
+        array_walk($categories[$category_name]['items'], array(__CLASS__, 'initItem'));
       }
     }
 

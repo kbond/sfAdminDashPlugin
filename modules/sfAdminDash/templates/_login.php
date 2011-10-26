@@ -7,9 +7,8 @@
   <div class="login clear">
     <div class="login-form">
       <form action="<?php echo url_for(sfAdminDash::getProperty('login_route', '@sf_guard_signin')); ?>" method="post">
-        <img alt="Login" src="<?php echo image_path(sfAdminDash::getProperty('web_dir', '/sfAdminDashPlugin').'/images/login.gif'); ?>" />
         <div class="form-block clear">
-		  <h2><?php echo __('Login panel', array(), 'sf_admin_dash'); ?></h2>
+		      <h2><?php echo __('Login panel', array(), 'sf_admin_dash'); ?></h2>
           <?php echo $form->renderGlobalErrors(); ?>
           <?php if(isset($form['_csrf_token'])): ?>
             <?php echo $form['_csrf_token']->render(); ?>

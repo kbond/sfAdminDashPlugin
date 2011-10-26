@@ -366,10 +366,10 @@ font-style: italic;
   clear: both;
 }
 
-.clear
-{
-  clear: both;
-}
+/* Contain floats: h5bp.com/q */
+.clear:before, .clear:after { content: ""; display: table; }
+.clear:after { clear: both; }
+.clear { *zoom: 1; }
 
 /**
 * Dashboard
@@ -463,6 +463,14 @@ ul.error_list li
   border:1px solid #CCCCCC;
   padding:15px 0 10px 15px;
 }
+
+.form-block h2 {
+  color: #C54334;
+  font-size: 200%;
+  padding: 0;
+  margin: 0 0 10px;
+}
+
 .login-form {
   float:right;
   text-align:left;
@@ -489,9 +497,6 @@ ul.error_list li
   margin-left: 6px;
 }
 
-.clr {
-  clear:both;
-}
 .ctr {
   text-align:center;
   margin-bottom: 20px;

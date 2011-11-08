@@ -16,8 +16,7 @@ else:
   /** @var string|null Link to the module (for breadcrumbs) */ $module_link = $sf_data->getRaw('module_link');
   /** @var string|null Link to the action (for breadcrumbs) */ $action_link = $sf_data->getRaw('action_link');
 
-
-if ($sf_user->isAuthenticated()): ?>
+if (!sfAdminDash::getProperty('is_protected', true) || $sf_user->isAuthenticated()): ?>
   <div id='sf_admin_theme_header'>
     <a href='<?php echo url_for(sfAdminDash::getProperty('dashboard_url')); ?>'><?php echo image_tag(sfAdminDash::getProperty('web_dir').'/images/header_text', array('alt' => 'Home')); ?></a>
   </div>

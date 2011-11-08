@@ -39,7 +39,6 @@
   </div>
 </div>
 
-
 <script type="text/javascript">
 (function (window, document) {
 

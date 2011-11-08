@@ -17,22 +17,22 @@ else:
   /** @var string|null Link to the action (for breadcrumbs) */ $action_link = $sf_data->getRaw('action_link');
 
 if (!sfAdminDash::getProperty('is_protected', true) || $sf_user->isAuthenticated()): ?>
-  <div id='sf_admin_theme_header'>
-    <a href='<?php echo url_for(sfAdminDash::getProperty('dashboard_url')); ?>'><?php echo image_tag(sfAdminDash::getProperty('web_dir').'/images/header_text', array('alt' => 'Home')); ?></a>
+  <div id="sf_admin_theme_header">
+    <a href="<?php echo url_for(sfAdminDash::getProperty('dashboard_url')); ?>"><?php echo image_tag(sfAdminDash::getProperty('web_dir').'/images/header_text', array('alt' => 'Home')); ?></a>
   </div>
 
-  <div id='sf_admin_menu'>
+  <div id="sf_admin_menu">
     <?php include_partial('sfAdminDash/menu', array('items' => $items, 'categories' => $categories)); ?>
 
     <?php if (sfAdminDash::getProperty('logout') && $sf_user->isAuthenticated()): ?>
-      <div id="logout"><?php echo link_to(__('Logout', null, 'sf_admin_dash'), sfAdminDash::getProperty('logout_route', '@sf_guard_signout ')); ?> <?php echo $sf_user; ?></div>
+      <div id="logout"><?php echo link_to(__('Logout', null, 'sf_admin_dash'), sfAdminDash::getProperty('logout_route', '@sf_guard_signout')); ?> <?php echo $sf_user; ?></div>
     <?php endif; ?>
     <?php include_partial('sfAdminDash/user_actions', array('user_actions' => $user_actions)) ?>
     <div class="clear"></div>
   </div>
 
   <?php if (sfAdminDash::getProperty('include_path')): ?>
-    <div id='sf_admin_path'>
+    <div id="sf_admin_path">
       <strong>
         <?php echo link_to(sfAdminDash::getProperty('site'), sfAdminDash::getProperty('dashboard_url')) ?>
       </strong>

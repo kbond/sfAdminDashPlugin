@@ -8,11 +8,11 @@
     <?php if (sfAdminDash::hasPermission($item, $sf_user)):?>
       <div style="float: left">
         <div class="icon">
-          <a href="<?php echo url_for($item['url']) ?>" title="<?php echo __($item['name']); ?>">    
+          <a href="<?php echo url_for($item['url']) ?>" title="<?php echo __($item['name']); ?>">
             <?php echo image_tag($item['image'], array('alt' => __($item['name']))); ?>
             <span><?php echo __($item['name']); ?></span>
           </a>
-        </div>        
+        </div>
       </div>
     <?php endif; ?>
   <?php endforeach; ?>

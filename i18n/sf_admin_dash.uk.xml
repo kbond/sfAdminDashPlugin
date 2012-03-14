@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+    <file source-language="en" target-language="es" datatype="plaintext" original="messages" product-name="messages">
+        <header/>
+        <body>
+            <trans-unit>
+                <source>Welcome to</source>
+                <target>Ласкаво просимо до</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Use a valid username and password to gain access to the administration console.</source>
+                <target>Використовуйте правильне ім'я користувача і пароль, щоб отримати доступ до консолі адміністрування.</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Username</source>
+                <target>Користувач</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Remember?</source>
+                <target>Запам'ятати?</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Dashboard</source>
+                <target>Панель адміністрування</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Logout</source>
+                <target>Вихід</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Login</source>
+                <target>Логін</target>
+            </trans-unit>
+            <trans-unit>
+            <source><![CDATA[Copyright &copy; %current_year% %site_name%. All rights reserved]]></source>
+            <target><![CDATA[Copyright &copy; %current_year% %site_name%. Всі права захищено]]></target>
+            </trans-unit>
+            <trans-unit>
+                <source>sfAdminDashPlugin is not configured.  Please see the %documentation_link%.</source>
+                <target>sfAdminDashPlugin не налаштований. Будь ласка переглянте документацію %documentation_link%.</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Filters</source>
+                <target>Фільтри</target>
+            </trans-unit>
+            <trans-unit>
+                <source>Login panel</source>
+                <target>Вхід</target>
+            </trans-unit>
+      
+        </body>
+    </file>
+</xliff>

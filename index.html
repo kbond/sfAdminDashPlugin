@@ -1,0 +1,370 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>sfAdminDashPlugin by kbond</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/kbond/sfAdminDashPlugin">Fork On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/kbond/sfAdminDashPlugin/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/kbond/sfAdminDashPlugin/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>sfAdminDashPlugin</h1>
+          <p>symfony dashboard interface for application backend</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/kbond">kbond</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>sfAdminDashPlugin</h1>
+
+<h2>Overview</h2>
+
+<p>I found for all my symfony projects which had backends I had to create a
+menu to access all the various modules.  This plugin automates the
+process by using a configuration file.</p>
+
+<h3>Requirements:</h3>
+
+<p><a href="http://www.symfony-project.org/plugins/sfJqueryReloadedPlugin">sfJqueryReloadedPlugin</a>
+This plugin depends on sfJqueryReloadedPlugin to create the dropdown
+menu and manipulate the view. If this plugin is not yet installed,
+the symfony plugin dependency system will install it when you install
+sfAdminDashPlugin.</p>
+
+<h2>How to use</h2>
+
+<h3>Step 1 - install plugin</h3>
+
+<p>Install the plugin, publish the assets and clear the cache.</p>
+
+<pre><code>$ symfony plugin:install sfAdminDashPlugin
+$ symfony plugin:publish-assets
+$ symfony cc
+</code></pre>
+
+<p>Then activate the sfAdminDash module in the application's <em>settings.yml</em></p>
+
+<pre><code># in application/config/settings.yml
+enabled_modules:          [default, sfAdminDash]
+</code></pre>
+
+<h3>Step 2 - setup theme</h3>
+
+<p>Add the plugin's header and footer to your application's global
+layout:</p>
+
+<div class="highlight">
+<pre><span class="c">&lt;!-- in application/templates/layout.php --&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="cp">&lt;?php</span> <span class="nx">include_component</span><span class="p">(</span><span class="s1">'sfAdminDash'</span><span class="p">,</span> <span class="s1">'header'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+  <span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$sf_content</span> <span class="cp">?&gt;</span>
+  <span class="cp">&lt;?php</span> <span class="nx">include_partial</span><span class="p">(</span><span class="s1">'sfAdminDash/footer'</span><span class="p">);</span> <span class="cp">?&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</pre>
+</div>
+
+
+<p>If you have admin generator modules, deactivate the default admin
+generator theme in each module's <em>generator.yml</em> by setting the css
+property.  You can either point the css property to a real stylesheet or
+just disable it.</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/modules/admin_generated_module/config/generator.yml</span>
+<span class="l-Scalar-Plain">generator</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">class</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">sfPropelGenerator</span>
+  <span class="l-Scalar-Plain">param</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">model_class</span><span class="p-Indicator">:</span>           <span class="l-Scalar-Plain">Article</span>
+    <span class="l-Scalar-Plain">theme</span><span class="p-Indicator">:</span>                 <span class="l-Scalar-Plain">admin</span>
+    <span class="l-Scalar-Plain">non_verbose_templates</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">with_show</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">false</span>
+    <span class="l-Scalar-Plain">singular</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">~</span>
+    <span class="l-Scalar-Plain">plural</span><span class="p-Indicator">:</span>                <span class="l-Scalar-Plain">~</span>
+    <span class="l-Scalar-Plain">route_prefix</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">article</span>
+    <span class="l-Scalar-Plain">with_propel_route</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">css</span><span class="p-Indicator">:</span>                   <span class="l-Scalar-Plain">false</span>   <span class="c1"># disable the default css</span>
+
+    <span class="l-Scalar-Plain">config</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">actions</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">fields</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">list</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">filter</span><span class="p-Indicator">:</span>  <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">form</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">edit</span><span class="p-Indicator">:</span>    <span class="l-Scalar-Plain">~</span>
+      <span class="l-Scalar-Plain">new</span><span class="p-Indicator">:</span>     <span class="l-Scalar-Plain">~</span>
+</pre>
+</div>
+
+
+<p>In the future I would like to create an actual theme by overriding the
+default files but I found an issue when trying to do this (see <a href="http://trac.symfony-project.org/ticket/5697">my
+ticket</a>)</p>
+
+<p>At this point your modules should be styled with the joomla-like
+theme.  There should also be a warning saying <em>sfAdminDashPlugin not configured. Please
+see documentation.</em>  We will fix that soon.</p>
+
+<h3>Step 3 (optional) - setup the dashboard</h3>
+
+<p>Set your application's <em>homepage</em> in your application's <em>routing.yml</em> to:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/routing.yml</span>
+<span class="l-Scalar-Plain">homepage</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">/</span>
+  <span class="l-Scalar-Plain">param</span><span class="p-Indicator">:</span> <span class="p-Indicator">{</span> <span class="nv">module</span><span class="p-Indicator">:</span> <span class="nv">sfAdminDash</span><span class="p-Indicator">,</span> <span class="nv">action</span><span class="p-Indicator">:</span> <span class="nv">dashboard</span> <span class="p-Indicator">}</span>
+</pre>
+</div>
+
+
+<h3>Step 4 - set global plugin configuration</h3>
+
+<p>The plugin's <em>app.yml</em> file looks like this:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in plugins/sfAdminDashPlugin/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">web_dir</span><span class="p-Indicator">:</span>                      <span class="l-Scalar-Plain">/sfAdminDashPlugin</span>
+    <span class="l-Scalar-Plain">image_dir</span><span class="p-Indicator">:</span>                    <span class="l-Scalar-Plain">/sfAdminDashPlugin/images/icons/</span>
+    <span class="l-Scalar-Plain">default_image</span><span class="p-Indicator">:</span>                <span class="l-Scalar-Plain">config.png</span>
+    <span class="l-Scalar-Plain">dashboard_url</span><span class="p-Indicator">:</span>                <span class="err">@</span><span class="l-Scalar-Plain">homepage</span>
+    <span class="l-Scalar-Plain">resize_mode</span><span class="p-Indicator">:</span>                  <span class="l-Scalar-Plain">thumbnail</span>
+    <span class="l-Scalar-Plain">site</span><span class="p-Indicator">:</span>                         <span class="l-Scalar-Plain">My Site Name</span>
+    <span class="l-Scalar-Plain">include_path</span><span class="p-Indicator">:</span>                 <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">include_assets</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">include_jquery</span><span class="p-Indicator">:</span>               <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">include_jquery_no_conflict</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">false</span>
+    <span class="l-Scalar-Plain">login_route</span><span class="p-Indicator">:</span>                  <span class="err">@</span><span class="l-Scalar-Plain">sf_guard_signin</span>
+    <span class="l-Scalar-Plain">logout</span><span class="p-Indicator">:</span>                       <span class="l-Scalar-Plain">true</span>
+    <span class="l-Scalar-Plain">logout_route</span><span class="p-Indicator">:</span>                 <span class="err">@</span><span class="l-Scalar-Plain">sf_guard_signout</span>
+</pre>
+</div>
+
+
+<ul>
+<li>web_dir - Where the plugin's default css/javascript/images are kept.</li>
+<li>image_dir - Where your images for the dash/menu items are kept -
+images should be 48x48.</li>
+<li>default_image - The default item image if none is specified - this
+must be in the <em>image_dir</em> folder.</li>
+<li>resize_mode - How the image will be resized for the menu items.
+
+<ul>
+<li>thumbnail - Looks for a directory inside <em>image_dir</em> called <em>small</em>
+for an image with the same name - it should be 16x16px.</li>
+<li>html - Resizes the image with the html <em>img</em> tag width/height attributes.</li>
+</ul>
+</li>
+<li>site - What you would like the site name to be (shows up in the <em>path
+bar</em> as a link and on the login page).</li>
+<li>include_path - Whether to generate path "breadcrumbs". Those are meant mainly for the admin generator.</li>
+<li>include_assets - Whether the plugin's assets (css and js) should be included. Leave this to true unless you intend to reskin the plugin.</li>
+<li>include_jquery - Whether to include jquery. Depends on sfJqueryReloadedPlugin.</li>
+<li>include_jquery_no_conflict - In case you are using another JS framework in you website, you should set this to true. It will prevent jQuery from interfering.</li>
+<li>login_route - The route to the login action, defaults to the sfGuardPlugin's.</li>
+<li>logout -  Whether a logout link will be shown.</li>
+<li>logout_route - The route to the logout action, defaults to the sfGuardPlugin's.</li>
+</ul><p>You can override these settings as you see fit.</p>
+
+<h3>Step 5 - configure the dashboard/menu items</h3>
+
+<p>Items are controlled by your application's <em>app.yml</em> file.  The best way
+to show how to use this is with an example:</p>
+
+<p>I have created a backend application with 2 admin modules: <em>Comment</em> and <em>Article</em>.</p>
+
+<p>To create dashboard/menu items for these modules I will use this configuration:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">items</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Articles</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">article</span>
+      <span class="l-Scalar-Plain">Comments</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">comment</span>
+</pre>
+</div>
+
+
+<p>This creates 2 items on the dashboard and a <em>Menu</em> dropdown.  The url
+property should be an internal URI.  You can also set credentials and an
+image.  The <em>image</em> property can be just the image name - the plugin will look
+for it in the folder specified in the global settings. Alternatively you can
+also specify an absolute path, like so <code>image: /somefolder/someimage.jpg</code>.</p>
+
+<p>The credential property can be used to hide options from users who do
+not have specific credentials.  This gives the ability for different
+users to see different options.  The format for this is the same as when
+setting credentials in <em>security.yml</em>.</p>
+
+<p><strong>NOTE:  This just prevents the user from seeing the item.  You still
+need to setup the same credentials in <em>security.yml</em> to prevent the user
+from accessing the module.</strong></p>
+
+<p>Here is an example configuration:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">items</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Articles</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">article</span>
+        <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">book.png</span>
+        <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[[</span><span class="nv">admin</span><span class="p-Indicator">,</span> <span class="nv">publisher</span><span class="p-Indicator">]]</span>
+      <span class="l-Scalar-Plain">Comments</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="l-Scalar-Plain">comment</span>
+        <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">textcloud.png</span>
+        <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span><span class="nv">admin</span><span class="p-Indicator">]</span>
+</pre>
+</div>
+
+
+<p>The above example shows the <em>Articles</em> item only to users with the
+<strong>admin</strong> or <strong>publisher</strong> credential and the <em>Comments</em> item only to
+users with the <strong>admin</strong> credential.  The images are self explanatory.</p>
+
+<p>Packaged with this plugin is a small library of images that can be used.</p>
+
+<p>You can group items into categories as well by embedding the items into
+a <em>category name</em> property under <em>categories</em> property:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Blog</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">items</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">Articles</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">article</span>
+            <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">book.png</span>
+            <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[[</span><span class="nv">admin</span><span class="p-Indicator">,</span> <span class="nv">publisher</span><span class="p-Indicator">]]</span>
+          <span class="l-Scalar-Plain">Comments</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">comment</span>
+            <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">textcloud.png</span>
+            <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>  <span class="p-Indicator">[</span><span class="nv">admin</span><span class="p-Indicator">]</span>
+      <span class="l-Scalar-Plain">Category2</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">items</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">...</span>
+</pre>
+</div>
+
+
+<p>Category names are not only seperated on the dashboard but they have
+their own dropdown menu.</p>
+
+<p>You can set credentials to entire categories like so:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">categories</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">Blog</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span> <span class="nv">admin</span> <span class="p-Indicator">]</span>
+        <span class="l-Scalar-Plain">items</span><span class="p-Indicator">:</span>
+          <span class="l-Scalar-Plain">Articles</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">article</span>
+            <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">book.png</span>
+          <span class="l-Scalar-Plain">Comments</span><span class="p-Indicator">:</span>
+            <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">comment</span>
+            <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">textcloud.png</span>
+</pre>
+</div>
+
+
+<p>This hides the entire category from the user if they don't have the
+<strong>admin</strong> credential.</p>
+
+<p>By default the plugin header prints a cookie trail in the format "module / action".
+To make module and action names more user-friendly you can overwrite them using the
+"translator" property like so:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">translator</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">sfGuardUser</span><span class="p-Indicator">:</span>                <span class="c1"># the module we are translating</span>
+        <span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>            <span class="l-Scalar-Plain">Users</span>   <span class="c1"># title for that module</span>
+        <span class="l-Scalar-Plain">actions</span><span class="p-Indicator">:</span>                  <span class="c1"># actions array</span>
+          <span class="l-Scalar-Plain">editUser</span><span class="p-Indicator">:</span>       <span class="l-Scalar-Plain">edit</span>    <span class="c1"># here we specify each action and its translation</span>
+</pre>
+</div>
+
+
+<h3>Step 6 (optional) - setting up login screen</h3>
+
+<p>Packaged with this plugin is a partial called <em>login</em>.  Currently, it only works
+with sfGuardPlugin. Include it like this:</p>
+
+<div class="highlight">
+<pre>// in application/modules/sfGuardAuth/templates/signinSuccess.php
+<span class="cp">&lt;?php</span> <span class="nx">include_partial</span><span class="p">(</span><span class="s1">'sfAdminDash/login'</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="s1">'form'</span> <span class="o">=&gt;</span> <span class="nv">$form</span><span class="p">));</span> <span class="cp">?&gt;</span>
+</pre>
+</div>
+
+
+<h3>Step 7 (optional) - setting up User actions</h3>
+
+<p>User actions can be optionally set in <em>app.yml</em>:</p>
+
+<div class="highlight">
+<pre><span class="c1"># in application/config/app.yml</span>
+<span class="l-Scalar-Plain">all</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">sf_admin_dash</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">user_actions</span><span class="p-Indicator">:</span>
+      <span class="s">"New</span><span class="nv"> </span><span class="s">Ticket"</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="err">@</span><span class="l-Scalar-Plain">cms_ticket_new</span>
+      <span class="s">"My</span><span class="nv"> </span><span class="s">Tickets"</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="err">@</span><span class="l-Scalar-Plain">cms_ticket</span>
+      <span class="s">"Clear</span><span class="nv"> </span><span class="s">cache"</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">url</span><span class="p-Indicator">:</span>              <span class="err">@</span><span class="l-Scalar-Plain">clear_app_cache</span>
+        <span class="l-Scalar-Plain">credentials</span><span class="p-Indicator">:</span>      <span class="p-Indicator">[</span> <span class="nv">admin</span> <span class="p-Indicator">]</span>
+</pre>
+</div>
+
+
+<p>These show up as a list of links next to the logout button.  Override the _user_actions partial if you wish to add some kind of logic to the action display.</p>
+
+<h3>todo</h3>
+
+<ul>
+<li>use an actual admin generator theme</li>
+<li>clean up css</li>
+</ul><p>Feel free to email suggestions/bugs.</p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>

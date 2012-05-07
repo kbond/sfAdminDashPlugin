@@ -24,9 +24,9 @@ class sfAdminDashConfig
     $context->getResponse()->addStylesheet(sfAdminDash::getProperty('web_dir').'/css/default.css', 'first');
     $context->getResponse()->addJavascript(sfAdminDash::getProperty('web_dir').'/js/sf_admin_dash.js', 'last');
 
-    if (sfAdminDash::getProperty('include_jquery'))
-      $context->getResponse()->addJavascript(sfConfig::get('sf_jquery_web_dir', '/sfJqueryReloadedPlugin') .
-              '/js/' . sfConfig::get('sf_jquery_core', 'jquery-1.3.2.min.js'), 'first');
+    if (sfAdminDash::getProperty('include_jquery')) {
+      sfContext::getInstance()->getConfiguration()->loadHelpers('jQuery');
+    }
   }
 
 

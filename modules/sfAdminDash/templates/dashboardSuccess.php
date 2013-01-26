@@ -3,7 +3,6 @@
   /** @var Array of menu items */ $items = $sf_data->getRaw('items');
   /** @var Array of categories, each containing an array of menu items and settings */ $categories = $sf_data->getRaw('categories');
 ?>
-
 <div id="sf_admin_dashboard_slot">
   <?php include_component_slot('sf_admin_dashboard_slot') ?>
 </div>

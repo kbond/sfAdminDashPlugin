@@ -3,8 +3,6 @@
   /** @var Array of menu items */ $items = $sf_data->getRaw('items');
   /** @var Array of categories, each containing an array of menu items and settings */ $categories = $sf_data->getRaw('categories');
 ?>
-
-
 <?php if (count($items)): ?>
   <ul>
     <?php if (sfAdminDash::hasItemsMenu($items)): ?>

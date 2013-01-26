@@ -2,8 +2,8 @@
 
 ##Overview
 
-I found for all my symfony projects which had backends I had to create a 
-menu to access all the various modules.  This plugin automates the 
+I found for all my symfony projects which had backends I had to create a
+menu to access all the various modules.  This plugin automates the
 process by using a configuration file.
 
 ###Requirements:
@@ -31,7 +31,7 @@ Then activate the sfAdminDash module in the application's *settings.yml*
 
 ###Step 2 - setup theme
 
-Add the plugin's header and footer to your application's global 
+Add the plugin's header and footer to your application's global
 layout:
 
     <!-- in application/templates/layout.php -->
@@ -42,9 +42,9 @@ layout:
     </body>
 
 
-If you have admin generator modules, deactivate the default admin 
-generator theme in each module's *generator.yml* by setting the css 
-property.  You can either point the css property to a real stylesheet or 
+If you have admin generator modules, deactivate the default admin
+generator theme in each module's *generator.yml* by setting the css
+property.  You can either point the css property to a real stylesheet or
 just disable it.
 
     # in application/modules/admin_generated_module/config/generator.yml
@@ -70,13 +70,13 @@ just disable it.
           edit:    ~
           new:     ~
 
-In the future I would like to create an actual theme by overriding the 
-default files but I found an issue when trying to do this (see [my 
+In the future I would like to create an actual theme by overriding the
+default files but I found an issue when trying to do this (see [my
 ticket](http://trac.symfony-project.org/ticket/5697))
 
 
-  At this point your modules should be styled with the joomla-like 
-theme.  There should also be a warning saying *sfAdminDashPlugin not configured. Please 
+  At this point your modules should be styled with the joomla-like
+theme.  There should also be a warning saying *sfAdminDashPlugin not configured. Please
 see documentation.*  We will fix that soon.
 
 ###Step 3 (optional) - setup the dashboard
@@ -108,17 +108,18 @@ The plugin's *app.yml* file looks like this:
         login_route:                  @sf_guard_signin
         logout:                       true
         logout_route:                 @sf_guard_signout
+        is_protected:                 true
 
 * web_dir - Where the plugin's default css/javascript/images are kept.
-* image_dir - Where your images for the dash/menu items are kept - 
+* image_dir - Where your images for the dash/menu items are kept -
 images should be 48x48.
-* default_image - The default item image if none is specified - this 
+* default_image - The default item image if none is specified - this
 must be in the *image_dir* folder.
 * resize_mode - How the image will be resized for the menu items.
-    * thumbnail - Looks for a directory inside *image_dir* called *small* 
+    * thumbnail - Looks for a directory inside *image_dir* called *small*
 for an image with the same name - it should be 16x16px.
     * html - Resizes the image with the html *img* tag width/height attributes.
-* site - What you would like the site name to be (shows up in the *path 
+* site - What you would like the site name to be (shows up in the *path
 bar* as a link and on the login page).
 * include_path - Whether to generate path "breadcrumbs". Those are meant mainly for the admin generator.
 * include_assets - Whether the plugin's assets (css and js) should be included. Leave this to true unless you intend to reskin the plugin.
@@ -127,12 +128,13 @@ bar* as a link and on the login page).
 * login_route - The route to the login action, defaults to the sfGuardPlugin's.
 * logout -  Whether a logout link will be shown.
 * logout_route - The route to the logout action, defaults to the sfGuardPlugin's.
+* is_protected - when the sfGuardPlugin is not used, set this option to true
 
 You can override these settings as you see fit.
 
 ###Step 5 - configure the dashboard/menu items
 
-Items are controlled by your application's *app.yml* file.  The best way 
+Items are controlled by your application's *app.yml* file.  The best way
 to show how to use this is with an example:
 
   I have created a backend application with 2 admin modules: *Comment* and *Article*.
@@ -148,19 +150,19 @@ to show how to use this is with an example:
           Comments:
             url:              comment
 
-This creates 2 items on the dashboard and a *Menu* dropdown.  The url 
-property should be an internal URI.  You can also set credentials and an 
-image.  The *image* property can be just the image name - the plugin will look 
-for it in the folder specified in the global settings. Alternatively you can 
+This creates 2 items on the dashboard and a *Menu* dropdown.  The url
+property should be an internal URI.  You can also set credentials and an
+image.  The *image* property can be just the image name - the plugin will look
+for it in the folder specified in the global settings. Alternatively you can
 also specify an absolute path, like so ``image: /somefolder/someimage.jpg``.
 
-  The credential property can be used to hide options from users who do 
-not have specific credentials.  This gives the ability for different 
-users to see different options.  The format for this is the same as when 
+  The credential property can be used to hide options from users who do
+not have specific credentials.  This gives the ability for different
+users to see different options.  The format for this is the same as when
 setting credentials in *security.yml*.
-  
-  **NOTE:  This just prevents the user from seeing the item.  You still 
-need to setup the same credentials in *security.yml* to prevent the user 
+
+  **NOTE:  This just prevents the user from seeing the item.  You still
+need to setup the same credentials in *security.yml* to prevent the user
 from accessing the module.**
 
 Here is an example configuration:
@@ -178,14 +180,14 @@ Here is an example configuration:
             image:            textcloud.png
             credentials:      [admin]
 
-The above example shows the *Articles* item only to users with the 
-**admin** or **publisher** credential and the *Comments* item only to 
-users with the **admin** credential.  The images are self explanatory.  
+The above example shows the *Articles* item only to users with the
+**admin** or **publisher** credential and the *Comments* item only to
+users with the **admin** credential.  The images are self explanatory.
 
 Packaged with this plugin is a small library of images that can be used.
 
 
-You can group items into categories as well by embedding the items into 
+You can group items into categories as well by embedding the items into
 a *category name* property under *categories* property:
 
     # in application/config/app.yml
@@ -206,7 +208,7 @@ a *category name* property under *categories* property:
             items:
               ...
 
-Category names are not only seperated on the dashboard but they have 
+Category names are not only seperated on the dashboard but they have
 their own dropdown menu.
 
   You can set credentials to entire categories like so:
@@ -225,11 +227,11 @@ their own dropdown menu.
                 url:          comment
                 image:        textcloud.png
 
-This hides the entire category from the user if they don't have the 
+This hides the entire category from the user if they don't have the
 **admin** credential.
 
 By default the plugin header prints a cookie trail in the format "module / action".
-To make module and action names more user-friendly you can overwrite them using the 
+To make module and action names more user-friendly you can overwrite them using the
 "translator" property like so:
 
     # in application/config/app.yml
@@ -243,7 +245,7 @@ To make module and action names more user-friendly you can overwrite them using 
 
 ###Step 6 (optional) - setting up login screen
 
-Packaged with this plugin is a partial called *login*.  Currently, it only works 
+Packaged with this plugin is a partial called *login*.  Currently, it only works
 with sfGuardPlugin. Include it like this:
 
     // in application/modules/sfGuardAuth/templates/signinSuccess.php
@@ -257,13 +259,13 @@ User actions can be optionally set in *app.yml*:
     all:
       sf_admin_dash:
         user_actions:
-          "New Ticket":       
-            url:              @cms_ticket_new 
-          "My Tickets":       
+          "New Ticket":
+            url:              @cms_ticket_new
+          "My Tickets":
             url:              @cms_ticket
           "Clear cache":
-            url:              @clear_app_cache  
-            credentials:      [ admin ]    
+            url:              @clear_app_cache
+            credentials:      [ admin ]
 
 These show up as a list of links next to the logout button.  Override the _user_actions partial if you wish to add some kind of logic to the action display.
 

@@ -1,8 +1,7 @@
-<?php use_helper('I18N'); ?>
 <?php
+  use_helper('I18N');
   /** @var Array of menu items */ $items = $sf_data->getRaw('items');
 ?>
-
 <?php foreach ($items as $key => $item): ?>
   <?php if (sfAdminDash::hasPermission($item, $sf_user)): ?>
     <?php if (($items_in_menu && $item['in_menu']) || (!$items_in_menu && !$item['in_menu'])): ?>

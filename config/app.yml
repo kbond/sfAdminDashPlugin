@@ -13,4 +13,4 @@ all:
     login_route:                  @sf_guard_signin
     logout:                       true
     logout_route:                 @sf_guard_signout
-    
+    is_protected:                 true

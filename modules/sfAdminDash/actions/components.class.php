@@ -8,7 +8,7 @@ require_once(dirname(__FILE__).'/../lib/BasesfAdminDashComponents.class.php');
  * @subpackage sfAdminDash
  * @author     kevin
  * @version    SVN: $Id$
- */ 
+ */
 class sfAdminDashComponents extends BasesfAdminDashComponents
 {
 }

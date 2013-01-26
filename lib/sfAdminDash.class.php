@@ -152,7 +152,7 @@ class sfAdminDash
    */
   public static function hasPermission($item, $user)
   {
-    if (!$user->isAuthenticated())
+    if (self::getProperty('is_protected', true) && !$user->isAuthenticated())
     {
       return false;
     }
